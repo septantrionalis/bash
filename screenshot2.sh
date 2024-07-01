@@ -1,4 +1,5 @@
 #!/bin/bash
+# Take a screenshot of the screen on the second monitor. Parameter can add a delay.
 
 if [ $# -eq 1 ]; then
     echo "Sleeping for $1 second(s)..."
