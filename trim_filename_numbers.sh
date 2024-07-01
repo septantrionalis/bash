@@ -1,5 +1,6 @@
 #!/bin/bash
-# This script was made to cleanup old music files for import. Change the name of the file into 
+# This script was made to cleanup old music files for import. Remove non alphanumeric characters from all files in 
+# the directory, recusively.
 
 # Define a function to remove non-alphabet characters from the start of a filename
 remove_non_alphabet() {
