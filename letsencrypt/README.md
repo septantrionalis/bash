@@ -8,4 +8,5 @@ nextcloud and wordpress, add in crontab for root:<BR>
 cert.sh assumes the new cert files have been generated and are in place. The MD5 hash of the file is what determines if it has changed.<BR>
 If the file has been changed, its uploaded to the appropriate server.<BR>
 If the file has not changed, it will check to see if the file exists on the appropriate server. If it doesnt exist, it uploads it again.<BR>
-
+<BR>
+To install a new cert on the traffic server, run cp_cert.sh.<BR>
