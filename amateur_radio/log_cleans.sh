@@ -16,6 +16,7 @@ function displayHelp() {
     else
         PARK="US-1209"
     fi
+    
     dt=$(date '+%Y%m%d');
     clear
     echo "replace.sh"
