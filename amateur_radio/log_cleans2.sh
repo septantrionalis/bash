@@ -24,7 +24,7 @@ function displayHelp() {
     echo "     ./$BASH_SCRIPT_FILENAME <WWFF Park Reference>"
     echo ""
     echo -e "${CYAN}DESCRIPTION${NOCOLOR}"
-    echo "     This script will create a cleansed POTa and WWFF file from a hamrs adif file. It will currently:"
+    echo "     This script will create a cleansed POTA and WWFF file from a hamrs adif file. It will currently:"
     echo "     - Add MY_POTA_REF:<POTA_PARK> in the comments section of the POTA adif file."
     echo "     - Add MY_WWFF_REF:<WWFF_PARK> in the comments section of the WWFF adif file."
     echo "     - Add <my_sig:4>WWFF to the WWFF adif file"
