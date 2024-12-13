@@ -107,14 +107,19 @@ function run() {
 
     # Display the counts
     INPUT_COUNT=`more input.adi | grep call | wc -l`
-    OUTPUT_COUNT=`more "$POTA_OUTPUT" | grep call | wc -l`
+    POTA_OUTPUT_COUNT=`more "$POTA_OUTPUT" | grep call | wc -l`
+    WWFF_OUTPUT_COUNT=`more "$WWFF_OUTPUT" | grep call | wc -l`
 
     echo "Input file count: $INPUT_COUNT" | xargs
-    echo "Output file count: $OUTPUT_COUNT" | xargs
+    echo "POTA Output file count: $POTA_OUTPUT_COUNT" | xargs
+    echo "WWFF Output file count: $WWFF_OUTPUT_COUNT" | xargs
 
     # Compare the counts
-    if [ "$INPUT_COUNT" -ne "$OUTPUT_COUNT" ]; then
-        echo -e "\033[31mError: count does not match\033[0m"
+    if [ "$INPUT_COUNT" -ne "$POTA_OUTPUT_COUNT" ]; then
+        echo -e "\033[31mError: count does not match in the POTA file.\033[0m"
+    fi
+    if [ "$INPUT_COUNT" -ne "$WWFF_OUTPUT_COUNT" ]; then
+        echo -e "\033[31mError: count does not match in the WWFF file.\033[0m"
     fi
 
 }
