@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Script to cleanse POTA and WWFF ADIF files
+# Script to cleanse a HAMRS generated ADIF file and save it as a POTA and WWFF ADIF file.
 # Author: KC0ZPS
 
 RED='\033[31m'
