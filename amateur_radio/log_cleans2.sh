@@ -3,6 +3,68 @@
 # Script to cleanse POTA and WWFF ADIF files
 # Author: KC0ZPS
 
+declare -a kv_store=()
+
+initialize_keys() {
+    set_key US-1209 KFF-1209  # Barr Lake
+    set_key US-1212 KFF-1212  # Chatfield
+    set_key US-1241 KFF-1241  # St. Vrain
+}
+
+# Function to set or update a key-value pair
+set_key() {
+    local key="$1"
+    local value="$2"
+    local found=0
+
+    # Update the value if the key already exists
+    for i in "${!kv_store[@]}"; do
+        if [[ "${kv_store[$i]}" == "$key="* ]]; then
+            kv_store[$i]="$key=$value"
+            found=1
+            break
+        fi
+    done
+
+    # If the key doesn't exist, add a new entry
+    if [[ $found -eq 0 ]]; then
+        kv_store+=("$key=$value")
+    fi
+}
+
+# Function to get the value for a given key
+get_key() {
+    local key="$1"
+    for pair in "${kv_store[@]}"; do
+        if [[ "$pair" == "$key="* ]]; then
+            echo "${pair#*=}" # Extract and print the value
+            return
+        fi
+    done
+    echo "null"
+}
+
+# Function to delete a key-value pair
+delete_key() {
+    local key="$1"
+    for i in "${!kv_store[@]}"; do
+        if [[ "${kv_store[$i]}" == "$key="* ]]; then
+            unset kv_store[$i]
+            kv_store=("${kv_store[@]}") # Rebuild array to remove gaps
+            echo "Key deleted."
+            return
+        fi
+    done
+    echo "Key not found."
+}
+
+# Function to list all key-value pairs
+list_keys() {
+    for pair in "${kv_store[@]}"; do
+        echo "$pair"
+    done
+}
+
 BASH_SCRIPT_FILENAME=$(basename "$0")
 INPUT="input.adi"
 DATE=$(date +"%Y%m%d")
@@ -45,17 +107,12 @@ function run() {
         exit 1
     fi
 
-    # Extract the first POTA park reference
-    POTA_PARK=$(grep -o '<my_sig_info:7>[^ ]*' "$INPUT" | head -n 1 | cut -d '>' -f 2)
-
     if [ -z "$POTA_PARK" ]; then
         echo "No park reference found. Exiting..."
         exit 1
     fi
 
-    echo "POTA Park: $POTA_PARK"
-    echo "WWFF Park: $WWFF_PARK"
-
+    # Output files
     POTA_OUTPUT="KC0ZPS@${POTA_PARK}-${DATE}.adi"
     WWFF_OUTPUT="KC0ZPS @ ${WWFF_PARK} ${DATE}.adi"
 
@@ -110,11 +167,25 @@ function run() {
     fi
 }
 
+initialize_keys
+
+# Extract the first POTA park reference
+POTA_PARK=$(grep -o '<my_sig_info:7>[^ ]*' "$INPUT" | head -n 1 | cut -d '>' -f 2)
+
 if [ -z "$1" ]; then
-    displayHelp
-    exit 1
+    if [ -z "$POTA_PARK" ]; then
+        echo "No park reference found. Exiting..."
+        exit 1
+    fi
+
+    WWFF_PARK=$(get_key $POTA_PARK)
+    if [[ "$WWFF_PARK" == "null" ]]; then
+        displayHelp
+        exit 1
+    fi
 fi
 
-echo "Start"
+echo -e "\033[32mPOTA:$POTA_PARK = WWFF:$WWFF_PARK\033[0m"
+
 run
 
