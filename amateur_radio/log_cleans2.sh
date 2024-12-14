@@ -3,12 +3,21 @@
 # Script to cleanse POTA and WWFF ADIF files
 # Author: KC0ZPS
 
+RED='\033[31m'
+GREEN='\033[32m'
+ORANGE='\033[38;5;208m'
+CYAN='\033[0;36m'
+NOCOLOR='\033[0m'
+
 declare -a kv_store=()
 
 initialize_keys() {
+    set_key US-0059 KFF-0059  # RMNP
     set_key US-1209 KFF-1209  # Barr Lake
     set_key US-1212 KFF-1212  # Chatfield
+    set_key US-1213 KFF-1213  # Cherry Creek State Park
     set_key US-1241 KFF-1241  # St. Vrain
+    set_key US-2355 KFF-2355  # Wilson State Park
 }
 
 # Function to set or update a key-value pair
@@ -72,30 +81,41 @@ WWFF_PARK=$1
 
 # Function to display help
 function displayHelp() {
-    CYAN='\033[0;36m'
-    NOCOLOR='\033[0m'
 
     clear
     echo "$BASH_SCRIPT_FILENAME"
     echo ""
-    echo -e "${CYAN}NAME${NOCOLOR}"
+    echo -e "${ORANGE}NAME${NOCOLOR}"
     echo "     ./$BASH_SCRIPT_FILENAME – Creates a cleansed POTA and WWFF file from a hamrs adif file."
     echo ""
-    echo -e "${CYAN}SYNOPSIS${NOCOLOR}"
+    echo -e "${ORANGE}SYNOPSIS${NOCOLOR}"
+    echo "     ./$BASH_SCRIPT_FILENAME"
     echo "     ./$BASH_SCRIPT_FILENAME <WWFF Park Reference>"
+    echo "     ./$BASH_SCRIPT_FILENAME skip"
+    echo "     ./$BASH_SCRIPT_FILENAME help"
     echo ""
-    echo -e "${CYAN}DESCRIPTION${NOCOLOR}"
+    echo -e "${ORANGE}DESCRIPTION${NOCOLOR}"
+    echo "     Input file: $INPUT"
+    echo ""
     echo "     This script cleanses POTA and WWFF files by adding specific metadata."
     echo "     - Adds MY_POTA_REF:<POTA_PARK> to POTA comments."
     echo "     - Adds MY_WWFF_REF:<WWFF_PARK>, my_sig, and my_sig_info to WWFF comments."
-    echo "     Input file: $INPUT"
+    echo ""
+    echo "     If no parameter is passed in, then the script will attempt to process the WWFF file"
+    echo "     by an internal lookup."
+    echo ""
+    echo "     If a text other than the below is passed in, then the script will process the WWFF file"
+    echo "     using this text as the WWFF identifier.  KFF-1212, for example"
+    echo ""
+    echo -e "     ${ORANGE}skip${NOCOLOR}                     Do not process a WWFF file."
+    echo -e "     ${ORANGE}help${NOCOLOR}                     Display the help message."
 }
 
 # Function to check and delete existing files
 function checkAndDeleteFile() {
     local file=$1
     if [ -f "$file" ]; then
-        echo -e "\033[31m$file exists. Deleting...\033[0m"
+        echo -e "${RED}$file exists. Deleting...${NOCOLOR}"
         rm "$file"
     fi
 }
@@ -160,12 +180,17 @@ function run() {
 
     # Verify counts
     if [ "$INPUT_COUNT" -ne "$POTA_OUTPUT_COUNT" ]; then
-        echo -e "\033[31mError: Count mismatch in POTA file.\033[0m"
+        echo -e "${RED}Error: Count mismatch in POTA file.${NOCOLOR}"
     fi
     if [ "$INPUT_COUNT" -ne "$WWFF_OUTPUT_COUNT" ]; then
-        echo -e "\033[31mError: Count mismatch in WWFF file.\033[0m"
+        echo -e "${RED}Error: Count mismatch in WWFF file.${NOCOLOR}"
     fi
 }
+
+if [[ "$1" == "help" ]]; then
+    displayHelp
+    exit 1
+fi
 
 initialize_keys
 
@@ -180,12 +205,12 @@ if [ -z "$1" ]; then
 
     WWFF_PARK=$(get_key $POTA_PARK)
     if [[ "$WWFF_PARK" == "null" ]]; then
-        displayHelp
+        echo -e "${RED}The POTA lookup found no WWFF reference.${NOCOLOR}"
         exit 1
     fi
 fi
 
-echo -e "\033[32mPOTA:$POTA_PARK = WWFF:$WWFF_PARK\033[0m"
+echo -e "${GREEN}POTA:$POTA_PARK = WWFF:$WWFF_PARK${NOCOLOR}"
 
 run
 
