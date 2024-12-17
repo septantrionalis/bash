@@ -134,7 +134,7 @@ function run() {
 
     # Output files
     POTA_OUTPUT="KC0ZPS@${POTA_PARK}-${DATE}.adi"
-    WWFF_OUTPUT="KC0ZPS @ ${WWFF_PARK} ${DATE}.adi"
+    WWFF_OUTPUT="KC0ZPS@${WWFF_PARK} ${DATE}.adi"
 
     echo "POTA Output File: $POTA_OUTPUT"
     echo "WWFF Output File: $WWFF_OUTPUT"
