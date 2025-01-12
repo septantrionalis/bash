@@ -152,8 +152,11 @@ list_adif_states() {
     local output=""
     local state_count=0
 
+    output+="  "
     for state in "${all_states[@]}"; do
-        if [[ " ${contacted_states[@]} " =~ " ${state} " ]]; then
+        if [[ "$state" == "MO" ]]; then
+            output+=$(echo -e "${WHITE}MO${NOCOLOR}\n\r  ")
+        elif [[ " ${contacted_states[@]} " =~ " ${state} " ]]; then
             # State contacted: display in blue
             output+=$(echo -e "${WHITE}$state${NOCOLOR} ")
             state_count=$((state_count + 1))
@@ -161,6 +164,7 @@ list_adif_states() {
             # State not contacted: display in dark gray
             output+=$(echo -e "${DARKGREY}$state${NOCOLOR} ")
         fi
+
     done
 
     # Print the output on a single line
