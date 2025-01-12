@@ -7,6 +7,9 @@ RED='\033[31m'
 GREEN='\033[32m'
 ORANGE='\033[38;5;208m'
 CYAN='\033[0;36m'
+BLUE='\033[34m'
+DARKGREY='\033[90m'
+WHITE='\033[97m'
 NOCOLOR='\033[0m'
 
 declare -a kv_store=()
@@ -19,6 +22,9 @@ initialize_keys() {
     set_key US-1214 KFF-1214  # Cheyenne Mountain State Park
     set_key US-1241 KFF-1241  # St. Vrain
     set_key US-2355 KFF-2355  # Wilson State Park
+    set_key US-3373 NIL-0000  # Chimney Rock National Historic Site (no WWFF)
+    set_key US-5661 NIL-0000  # Bridgeport State Recreation Area (no WWFF)
+
 }
 
 # Function to set or update a key-value pair
@@ -121,6 +127,49 @@ function checkAndDeleteFile() {
     fi
 }
 
+# Function to extract and list unique states from an ADIF log
+list_adif_states() {
+    local adif_file="$1"
+
+    if [[ ! -f "$adif_file" ]]; then
+        echo "Error: File '$adif_file' not found."
+        return 1
+    fi
+
+    # List of all U.S. states (abbreviations)
+    local all_states=(
+        AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN
+        MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA
+        WA WV WI WY
+    )
+
+    # Extract unique contacted states from the ADIF file
+    local contacted_states=($(grep -oi '<state:[0-9]*>[^<]*' "$adif_file" | \
+                              sed -E 's/<state:[0-9]+>//I' | \
+                              sort | uniq))
+
+    # Prepare the output for all states
+    local output=""
+    local state_count=0
+
+    for state in "${all_states[@]}"; do
+        if [[ " ${contacted_states[@]} " =~ " ${state} " ]]; then
+            # State contacted: display in blue
+            output+=$(echo -e "${WHITE}$state${NOCOLOR} ")
+            state_count=$((state_count + 1))
+        else
+            # State not contacted: display in dark gray
+            output+=$(echo -e "${DARKGREY}$state${NOCOLOR} ")
+        fi
+    done
+
+    # Print the output on a single line
+    echo -e "$state_count U.S. States"
+    echo -e "$output"
+
+    return 0
+}
+
 # Main function to process input and create output files
 function run() {
     if [ ! -f "$INPUT" ]; then
@@ -174,6 +223,8 @@ function run() {
     INPUT_COUNT=$(grep -c "call" "$INPUT")
     POTA_OUTPUT_COUNT=$(grep -c "call" "$POTA_OUTPUT")
     WWFF_OUTPUT_COUNT=$(grep -c "call" "$WWFF_OUTPUT")
+
+    list_adif_states "$POTA_OUTPUT"
 
     echo "Input file count: $INPUT_COUNT"
     echo "POTA Output file count: $POTA_OUTPUT_COUNT"
