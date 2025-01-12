@@ -174,6 +174,59 @@ list_adif_states() {
     return 0
 }
 
+# Calculate run time
+calculate_time_diff() {
+    local adif_file="$1"
+
+    # Check if the file exists
+    if [[ ! -f "$adif_file" ]]; then
+        echo "File not found: $adif_file"
+        return 1
+    fi
+
+    # Extract TIME_ON fields, sort them, and find the first and last times (case-insensitive)
+    local first_time last_time first_timestamp last_timestamp time_diff hours minutes seconds total_contacts cpm
+
+    # Count the total number of contacts (lines with TIME_ON)
+    total_contacts=$(grep -iEo '<TIME_ON:[0-9]+>[0-9]+' "$adif_file" | wc -l)
+
+    # Ensure there are contacts
+    if [[ $total_contacts -lt 1 ]]; then
+        echo "No contacts found in the file."
+        return 1
+    fi
+
+    first_time=$(grep -iEo '<TIME_ON:[0-9]+>[0-9]+' "$adif_file" | head -n 1 | sed 's/.*>//')
+    last_time=$(grep -iEo '<TIME_ON:[0-9]+>[0-9]+' "$adif_file" | tail -n 1 | sed 's/.*>//')
+
+    # Ensure times were found
+    if [[ -z "$first_time" || -z "$last_time" ]]; then
+        echo "No TIME_ON entries found in the file."
+        return 1
+    fi
+
+    # Convert the times (HHMMSS) into Unix timestamps (using 1970-01-01 as the date)
+    first_timestamp=$(date -j -f "%T" "${first_time:0:2}:${first_time:2:2}:${first_time:4:2}" +%s)
+    last_timestamp=$(date -j -f "%T" "${last_time:0:2}:${last_time:2:2}:${last_time:4:2}" +%s)
+
+    # Calculate the time difference in seconds
+    time_diff=$((last_timestamp - first_timestamp))
+
+    # Convert seconds into hours, minutes, and seconds
+    hours=$((time_diff / 3600))
+    minutes=$(( (time_diff % 3600) / 60 ))
+    seconds=$((time_diff % 60))
+
+    # Calculate Contacts Per Minute (CPM)
+    total_minutes=$((time_diff / 60))
+    cpm=$(echo "scale=2; $total_contacts / $total_minutes" | bc)
+
+    # Display the result
+    echo "Operating Time: ${hours} hours, ${minutes} minutes, ${seconds} seconds"
+    echo "Total contacts: $total_contacts"
+    echo "Contacts per minute: $cpm"
+}
+
 # Main function to process input and create output files
 function run() {
     if [ ! -f "$INPUT" ]; then
@@ -228,6 +281,7 @@ function run() {
     POTA_OUTPUT_COUNT=$(grep -c "call" "$POTA_OUTPUT")
     WWFF_OUTPUT_COUNT=$(grep -c "call" "$WWFF_OUTPUT")
 
+    calculate_time_diff "$POTA_OUTPUT"
     list_adif_states "$POTA_OUTPUT"
 
     echo "Input file count: $INPUT_COUNT"
