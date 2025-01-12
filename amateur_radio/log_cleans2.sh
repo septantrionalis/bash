@@ -316,13 +316,14 @@ function run() {
     POTA_OUTPUT_COUNT=$(grep -c "call" "$POTA_OUTPUT")
     WWFF_OUTPUT_COUNT=$(grep -c "call" "$WWFF_OUTPUT")
 
-    calculate_time_diff "$POTA_OUTPUT"
-    list_adif_states "$POTA_OUTPUT"
-    count_and_list_unique_bands "$POTA_OUTPUT"
-
     echo "Input file count: $INPUT_COUNT"
     echo "POTA Output file count: $POTA_OUTPUT_COUNT"
     echo "WWFF Output file count: $WWFF_OUTPUT_COUNT"
+
+    echo -= STATS =-
+    calculate_time_diff "$POTA_OUTPUT"
+    list_adif_states "$POTA_OUTPUT"
+    count_and_list_unique_bands "$POTA_OUTPUT"
 
     # Verify counts
     if [ "$INPUT_COUNT" -ne "$POTA_OUTPUT_COUNT" ]; then
