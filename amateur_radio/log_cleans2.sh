@@ -222,9 +222,15 @@ calculate_time_diff() {
     cpm=$(echo "scale=2; $total_contacts / $total_minutes" | bc)
 
     # Display the result
+    total_contacts=$(trim_leading_spaces "$total_contacts")
     echo "Operating Time: ${hours} hours, ${minutes} minutes, ${seconds} seconds"
     echo "Total contacts: $total_contacts"
     echo "Contacts per minute: $cpm"
+}
+
+# Function to trim leading spaces
+trim_leading_spaces() {
+    echo "$1" | sed 's/^[[:space:]]*//'
 }
 
 # Function to count and list unique bands in an ADIF file
