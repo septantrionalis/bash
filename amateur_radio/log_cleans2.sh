@@ -227,6 +227,41 @@ calculate_time_diff() {
     echo "Contacts per minute: $cpm"
 }
 
+# Function to count and list unique bands in an ADIF file
+count_and_list_unique_bands() {
+    local adif_file="$1"
+
+    # Ensure the ADIF file exists
+    if [[ ! -f "$adif_file" ]]; then
+        echo "Error: ADIF file not found."
+        return 1
+    fi
+
+    # Extract the bands using grep (case-insensitive) and sed to handle the <BAND> field format
+    unique_bands=$(grep -i '\<BAND\>' "$adif_file" | sed -E 's/.*<BAND>([^<]+)<\/BAND>.*/\1/' | sort | uniq)
+
+    # Cleans the <band> from the output
+    unique_bands=$(echo "$unique_bands" | sed 's/<band:[234]>//g')
+
+    # Sort the array numerically by removing the 'm' suffix for sorting    
+    array=($unique_bands)
+    unique_bands=$(printf "%s\n" "${array[@]}" | sort -n -t 'm' -k 1,1)
+
+    # Check if any unique bands were found and print them on a single line
+    if [[ -n "$unique_bands" ]]; then
+        # Print the total number of unique bands
+        total_bands=$(echo "$unique_bands" | wc -l)
+        printf "Total unique bands: %d\n" "$total_bands"
+
+        printf "Unique bands: "
+        echo "$unique_bands" | tr '\n' ' '  # Replace newlines with spaces
+        echo  # Print a newline after the bands
+    else
+        echo "No bands found in the ADIF file."
+    fi
+}
+
+
 # Main function to process input and create output files
 function run() {
     if [ ! -f "$INPUT" ]; then
@@ -283,6 +318,7 @@ function run() {
 
     calculate_time_diff "$POTA_OUTPUT"
     list_adif_states "$POTA_OUTPUT"
+    count_and_list_unique_bands "$POTA_OUTPUT"
 
     echo "Input file count: $INPUT_COUNT"
     echo "POTA Output file count: $POTA_OUTPUT_COUNT"
