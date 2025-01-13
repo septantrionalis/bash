@@ -3,6 +3,8 @@
 # Script to cleanse a HAMRS generated ADIF file and save it as a POTA and WWFF ADIF file.
 # Author: KC0ZPS
 
+CALLSIGN='KC0ZPS'
+
 RED='\033[31m'
 GREEN='\033[32m'
 ORANGE='\033[38;5;208m'
@@ -281,8 +283,8 @@ function run() {
     fi
 
     # Output files
-    POTA_OUTPUT="KC0ZPS@${POTA_PARK}-${DATE}.adi"
-    WWFF_OUTPUT="KC0ZPS@${WWFF_PARK} ${DATE}.adi"
+    POTA_OUTPUT="${CALLSIGN}@${POTA_PARK}-${DATE}.adi"
+    WWFF_OUTPUT="${CALLSIGN}@${WWFF_PARK} ${DATE}.adi"
 
     echo "POTA Output File: $POTA_OUTPUT"
     echo "WWFF Output File: $WWFF_OUTPUT"
