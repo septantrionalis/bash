@@ -14,6 +14,8 @@ DARKGREY='\033[90m'
 WHITE='\033[97m'
 NOCOLOR='\033[0m'
 
+PROCESSWWFF=1
+
 declare -a kv_store=()
 
 initialize_keys() {
@@ -282,7 +284,10 @@ function run() {
     WWFF_OUTPUT="${CALLSIGN}@${WWFF_PARK} ${DATE}.adi"
 
     echo "POTA Output File: $POTA_OUTPUT"
-    echo "WWFF Output File: $WWFF_OUTPUT"
+
+    if [ $PROCESSWWFF -eq 1 ]; then
+        echo "WWFF Output File: $WWFF_OUTPUT"
+    fi
 
     checkAndDeleteFile "$POTA_OUTPUT"
     checkAndDeleteFile "$WWFF_OUTPUT"
@@ -299,29 +304,35 @@ function run() {
     echo "Done processing POTA."
 
     # Process WWFF
-    while read -r line; do
-        case $line in
-            *"<my_sig:"*)
-                echo "<my_sig:4>WWFF" >> "$WWFF_OUTPUT";;
-            *"<my_sig_info:"*)
-                echo "<my_sig_info:${#WWFF_PARK}>$WWFF_PARK" >> "$WWFF_OUTPUT";;
-            *"comment"*)
-                comment="MY_WWFF_REF:$WWFF_PARK"
-                echo "<comment:${#comment}>$comment" >> "$WWFF_OUTPUT";;
-            *)
-                echo "$line" >> "$WWFF_OUTPUT";;
-        esac
-    done < "$INPUT"
-    echo "Done processing WWFF."
+    if [ $PROCESSWWFF -eq 1 ]; then
+        while read -r line; do
+            case $line in
+                *"<my_sig:"*)
+                    echo "<my_sig:4>WWFF" >> "$WWFF_OUTPUT";;
+                *"<my_sig_info:"*)
+                    echo "<my_sig_info:${#WWFF_PARK}>$WWFF_PARK" >> "$WWFF_OUTPUT";;
+                *"comment"*)
+                    comment="MY_WWFF_REF:$WWFF_PARK"
+                    echo "<comment:${#comment}>$comment" >> "$WWFF_OUTPUT";;
+                *)
+                    echo "$line" >> "$WWFF_OUTPUT";;
+            esac
+        done < "$INPUT"
+        echo "Done processing WWFF."
+    fi
 
     # Display counts
     INPUT_COUNT=$(grep -c "call" "$INPUT")
     POTA_OUTPUT_COUNT=$(grep -c "call" "$POTA_OUTPUT")
-    WWFF_OUTPUT_COUNT=$(grep -c "call" "$WWFF_OUTPUT")
+    if [ $PROCESSWWFF -eq 1 ]; then
+        WWFF_OUTPUT_COUNT=$(grep -c "call" "$WWFF_OUTPUT")
+    fi
 
     echo "Input file count: $INPUT_COUNT"
     echo "POTA Output file count: $POTA_OUTPUT_COUNT"
-    echo "WWFF Output file count: $WWFF_OUTPUT_COUNT"
+    if [ $PROCESSWWFF -eq 1 ]; then
+        echo "WWFF Output file count: $WWFF_OUTPUT_COUNT"
+    fi
 
     echo -= STATS =-
     calculate_time_diff "$POTA_OUTPUT"
@@ -332,8 +343,10 @@ function run() {
     if [ "$INPUT_COUNT" -ne "$POTA_OUTPUT_COUNT" ]; then
         echo -e "${RED}Error: Count mismatch in POTA file.${NOCOLOR}"
     fi
-    if [ "$INPUT_COUNT" -ne "$WWFF_OUTPUT_COUNT" ]; then
-        echo -e "${RED}Error: Count mismatch in WWFF file.${NOCOLOR}"
+    if [ $PROCESSWWFF -eq 1 ]; then
+        if [ "$INPUT_COUNT" -ne "$WWFF_OUTPUT_COUNT" ]; then
+            echo -e "${RED}Error: Count mismatch in WWFF file.${NOCOLOR}"
+        fi
     fi
 }
 
@@ -352,6 +365,7 @@ initialize_keys
 # Extract the first POTA park reference
 POTA_PARK=$(grep -o '<my_sig_info:7>[^ ]*' "$INPUT" | head -n 1 | cut -d '>' -f 2)
 
+# No parameter passed in
 if [ -z "$1" ]; then
     if [ -z "$POTA_PARK" ]; then
         echo "No park reference found. Exiting..."
@@ -365,7 +379,13 @@ if [ -z "$1" ]; then
     fi
 fi
 
-echo -e "${GREEN}POTA:$POTA_PARK = WWFF:$WWFF_PARK${NOCOLOR}"
+if [ "$1" == "skip" ]; then
+    # Skip the processing of a WWFF log
+    PROCESSWWFF=0
+    echo "Skipping WWFF Processing"
+else
+    echo -e "${GREEN}POTA:$POTA_PARK = WWFF:$WWFF_PARK${NOCOLOR}"
+fi
 
 run
 
