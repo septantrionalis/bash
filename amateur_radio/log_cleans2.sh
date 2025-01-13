@@ -384,7 +384,7 @@ if [ "$1" == "skip" ]; then
     PROCESSWWFF=0
     echo "Skipping WWFF Processing"
 else
-    echo -e "${GREEN}POTA:$POTA_PARK = WWFF:$WWFF_PARK${NOCOLOR}"
+    echo -e "POTA:$POTA_PARK = WWFF:$WWFF_PARK"
 fi
 
 run
