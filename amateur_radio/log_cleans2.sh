@@ -272,11 +272,6 @@ count_and_list_unique_bands() {
 
 # Main function to process input and create output files
 function run() {
-    if [ ! -f "$INPUT" ]; then
-        echo "$INPUT not found!"
-        exit 1
-    fi
-
     if [ -z "$POTA_PARK" ]; then
         echo "No park reference found. Exiting..."
         exit 1
@@ -344,6 +339,11 @@ function run() {
 
 if [[ "$1" == "help" ]]; then
     displayHelp
+    exit 1
+fi
+
+if [ ! -f "$INPUT" ]; then
+    echo "$INPUT not found!"
     exit 1
 fi
 
