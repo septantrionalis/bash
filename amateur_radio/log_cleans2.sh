@@ -257,9 +257,9 @@ count_and_list_unique_bands() {
     if [[ -n "$unique_bands" ]]; then
         # Print the total number of unique bands
         total_bands=$(echo "$unique_bands" | wc -l)
-        printf "Total unique bands: %d\n" "$total_bands"
+        printf "Total Bands: %d\n" "$total_bands"
 
-        printf "Unique bands: "
+        printf "Bands: "
         echo "$unique_bands" | tr '\n' ' '  # Replace newlines with spaces
         echo  # Print a newline after the bands
     else
