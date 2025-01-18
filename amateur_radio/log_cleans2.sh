@@ -363,7 +363,7 @@ fi
 initialize_keys
 
 # Extract the first POTA park reference
-POTA_PARK=$(grep -o '<my_sig_info:7>[^ ]*' "$INPUT" | head -n 1 | cut -d '>' -f 2)
+POTA_PARK=$(grep -o '<my_sig_info:[78]>[^ ]*' "$INPUT" | head -n 1 | cut -d '>' -f 2)
 
 # No parameter passed in
 if [ -z "$1" ]; then
