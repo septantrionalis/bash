@@ -21,9 +21,11 @@ declare -a kv_store=()
 initialize_keys() {
     set_key US-0059 KFF-0059  # RMNP
     set_key US-1209 KFF-1209  # Barr Lake
+    set_key US-1211 KFF-1211  # Castlewood Canyon State Park
     set_key US-1212 KFF-1212  # Chatfield
     set_key US-1213 KFF-1213  # Cherry Creek State Park
     set_key US-1214 KFF-1214  # Cheyenne Mountain State Park
+    set_key US-1225 KFF-1225  # Lake Pueblo State Park
     set_key US-1241 KFF-1241  # St. Vrain
     set_key US-2355 KFF-2355  # Wilson State Park
     set_key US-3373 NIL-0000  # Chimney Rock National Historic Site (no WWFF)
