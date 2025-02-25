@@ -20,6 +20,7 @@ declare -a kv_store=()
 
 initialize_keys() {
     set_key US-0059 KFF-0059  # RMNP
+    set_key US-0244 KFF-0244  # Key West National Wildlife Refuge
     set_key US-1209 KFF-1209  # Barr Lake
     set_key US-1212 KFF-1212  # Chatfield
     set_key US-1213 KFF-1213  # Cherry Creek State Park
