@@ -26,6 +26,7 @@ initialize_keys() {
     set_key US-1213 KFF-1213  # Cherry Creek State Park
     set_key US-1214 KFF-1214  # Cheyenne Mountain State Park
     set_key US-1225 KFF-1225  # Lake Pueblo State Park
+    set_key US-1226 KFF-1226  # Lathrop State Park
     set_key US-1241 KFF-1241  # St. Vrain
     set_key US-2355 KFF-2355  # Wilson State Park
     set_key US-3373 NIL-0000  # Chimney Rock National Historic Site (no WWFF)
