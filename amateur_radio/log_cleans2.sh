@@ -317,6 +317,7 @@ function run() {
             fi
             found_eor="false"
             found_comment="false"
+            callsign="TBD"
         fi
 
         if [[ $line == *"comment"* ]]; then
