@@ -302,9 +302,8 @@ function run() {
     checkAndDeleteFile "$WWFF_OUTPUT"
 
     # Process POTA
-    found_eor="false"
     found_comment="false"
-    callsign="TBD"
+    callsign="false"
     while read -r line; do 
         if [[ $line == *"call"* ]]; then
             callsign="${line#*>}"
@@ -312,12 +311,11 @@ function run() {
 
         if [[ $line == *"eor"* ]]; then
             if [ "$found_comment" == "false" ]; then                
-                echo -e ${RED}Did not find a comment for $callsign!${NOCOLOR}
+                echo -e ${RED}Did not find a comment for $callsign! Generating one.${NOCOLOR}
                 echo "<comment:${#comment}>$comment" >> "$POTA_OUTPUT"
             fi
-            found_eor="false"
             found_comment="false"
-            callsign="TBD"
+            callsign="false"
         fi
 
         if [[ $line == *"comment"* ]]; then
@@ -333,8 +331,22 @@ function run() {
     echo "Done processing POTA."
 
     # Process WWFF
+    found_comment="false"
+    callsign="false"
     if [ $PROCESSWWFF -eq 1 ]; then
         while read -r line; do
+            if [[ $line == *"call"* ]]; then
+                callsign="${line#*>}"
+            fi
+            if [[ $line == *"eor"* ]]; then
+                if [ "$found_comment" == "false" ]; then
+                    comment="MY_WWFF_REF:$WWFF_PARK"
+                    echo "<comment:${#comment}>$comment" >> "$WWFF_OUTPUT"
+                fi
+                found_comment="false"
+                callsign="false"
+            fi
+
             case $line in
                 *"<my_sig:"*)
                     echo "<my_sig:4>WWFF" >> "$WWFF_OUTPUT";;
@@ -342,19 +354,22 @@ function run() {
                     echo "<my_sig_info:${#WWFF_PARK}>$WWFF_PARK" >> "$WWFF_OUTPUT";;
                 *"comment"*)
                     comment="MY_WWFF_REF:$WWFF_PARK"
+                    found_comment="true"
                     echo "<comment:${#comment}>$comment" >> "$WWFF_OUTPUT";;
                 *)
                     echo "$line" >> "$WWFF_OUTPUT";;
             esac
+
+
         done < "$INPUT"
         echo "Done processing WWFF."
     fi
 
     # Display counts
-    INPUT_COUNT=$(grep -c "call" "$INPUT")
-    POTA_OUTPUT_COUNT=$(grep -c "call" "$POTA_OUTPUT")
+    INPUT_COUNT=$(grep -c "<call" "$INPUT")
+    POTA_OUTPUT_COUNT=$(grep -c "<call" "$POTA_OUTPUT")
     if [ $PROCESSWWFF -eq 1 ]; then
-        WWFF_OUTPUT_COUNT=$(grep -c "call" "$WWFF_OUTPUT")
+        WWFF_OUTPUT_COUNT=$(grep -c "<call" "$WWFF_OUTPUT")
     fi
 
     echo "Input file count: $INPUT_COUNT"
