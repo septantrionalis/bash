@@ -29,11 +29,15 @@ initialize_keys() {
     set_key US-1214 KFF-1214  # Cheyenne Mountain State Park
     set_key US-1225 KFF-1225  # Lake Pueblo State Park
     set_key US-1226 KFF-1226  # Lathrop State Park
+    set_key US-1228 KFF-1228  # Lory State Park
+    set_key US-1232 KFF-1232  # North Sterling State Park
     set_key US-1241 KFF-1241  # St. Vrain
     set_key US-2355 KFF-2355  # Wilson State Park
     set_key US-3373 NIL-0000  # Chimney Rock National Historic Site (no WWFF)
     set_key US-5661 NIL-0000  # Bridgeport State Recreation Area (no WWFF)
-
+    set_key US-11926 NIL-0000 # Lon Hagler State Wildlife Area
+    set_key US-11940 NIL-0000 # Simpsons Pond State Wildlife Area
+    set_key US-12176 NIL-0000 # Frank State Wildlife Area
 }
 
 # Function to set or update a key-value pair
@@ -298,13 +302,32 @@ function run() {
     checkAndDeleteFile "$WWFF_OUTPUT"
 
     # Process POTA
+    found_eor="false"
+    found_comment="false"
+    callsign="TBD"
     while read -r line; do 
+        if [[ $line == *"call"* ]]; then
+            callsign="${line#*>}"
+        fi
+
+        if [[ $line == *"eor"* ]]; then
+            if [ "$found_comment" == "false" ]; then                
+                echo -e ${RED}Did not find a comment for $callsign!${NOCOLOR}
+                echo "<comment:${#comment}>$comment" >> "$POTA_OUTPUT"
+            fi
+            found_eor="false"
+            found_comment="false"
+        fi
+
         if [[ $line == *"comment"* ]]; then
             comment="MY_POTA_REF:$POTA_PARK"
+            found_comment="true"
             echo "<comment:${#comment}>$comment" >> "$POTA_OUTPUT"
         else
             echo "$line" >> "$POTA_OUTPUT"
         fi
+
+        
     done < "$INPUT"
     echo "Done processing POTA."
 
