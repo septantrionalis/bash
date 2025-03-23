@@ -38,6 +38,11 @@ initialize_keys() {
     set_key US-11926 NIL-0000 # Lon Hagler State Wildlife Area
     set_key US-11940 NIL-0000 # Simpsons Pond State Wildlife Area
     set_key US-12176 NIL-0000 # Frank State Wildlife Area
+    set_key US-10533 NIL-0000 # Watson Lake State Wildlife Area
+    set_key US-11924 NIL-0000 # Douglas Reservoir State Wildlife Area
+    set_key US-11939 NIL-0000 # Poudre River State Wildlife Area
+    set_key US-11941 NIL-0000 # Smith Lake State Wildlife Area
+
 }
 
 # Function to set or update a key-value pair
