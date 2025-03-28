@@ -42,7 +42,7 @@ initialize_keys() {
     set_key US-11924 NIL-0000 # Douglas Reservoir State Wildlife Area
     set_key US-11939 NIL-0000 # Poudre River State Wildlife Area
     set_key US-11941 NIL-0000 # Smith Lake State Wildlife Area
-
+    set_key US-12181 NIL-0000 # Banner lakes State Wildlife Area
 }
 
 # Function to set or update a key-value pair
@@ -288,6 +288,12 @@ count_and_list_unique_bands() {
 
 # Main function to process input and create output files
 function run() {
+    CALL_KEY="<call"
+    EOR_KEY="<eor"
+    COMMENT_KEY="<comment"
+    MY_SIG_KEY="<my_sig:"
+    MY_SIG_INFO_KEY="<my_sig_info:"
+
     if [ -z "$POTA_PARK" ]; then
         echo "No park reference found. Exiting..."
         exit 1
@@ -309,24 +315,24 @@ function run() {
     # Process POTA
     found_comment="false"
     callsign="false"
+    comment="MY_POTA_REF:$POTA_PARK"
     while read -r line; do 
-        if [[ $line == *"call"* ]]; then
+        if [[ $line == *"$CALL_KEY"* ]]; then
             callsign="${line#*>}"
         fi
 
-        if [[ $line == *"eor"* ]]; then
+        if [[ $line == *"$EOR_KEY"* ]]; then
             if [ "$found_comment" == "false" ]; then                
                 echo -e ${RED}Did not find a comment for $callsign! Generating one.${NOCOLOR}
-                echo "<comment:${#comment}>$comment" >> "$POTA_OUTPUT"
+                echo "$COMMENT_KEY:${#comment}>$comment" >> "$POTA_OUTPUT"
             fi
             found_comment="false"
             callsign="false"
         fi
 
-        if [[ $line == *"comment"* ]]; then
-            comment="MY_POTA_REF:$POTA_PARK"
+        if [[ $line == *"$COMMENT_KEY"* ]]; then
             found_comment="true"
-            echo "<comment:${#comment}>$comment" >> "$POTA_OUTPUT"
+            echo "$COMMENT_KEY:${#comment}>$comment" >> "$POTA_OUTPUT"
         else
             echo "$line" >> "$POTA_OUTPUT"
         fi
@@ -338,14 +344,14 @@ function run() {
     # Process WWFF
     found_comment="false"
     callsign="false"
+    comment="MY_WWFF_REF:$WWFF_PARK"
     if [ $PROCESSWWFF -eq 1 ]; then
         while read -r line; do
-            if [[ $line == *"call"* ]]; then
+            if [[ $line == *"$CALL_KEY"* ]]; then
                 callsign="${line#*>}"
             fi
-            if [[ $line == *"eor"* ]]; then
+            if [[ $line == *"$EOR_KEY"* ]]; then
                 if [ "$found_comment" == "false" ]; then
-                    comment="MY_WWFF_REF:$WWFF_PARK"
                     echo "<comment:${#comment}>$comment" >> "$WWFF_OUTPUT"
                 fi
                 found_comment="false"
@@ -353,14 +359,14 @@ function run() {
             fi
 
             case $line in
-                *"<my_sig:"*)
-                    echo "<my_sig:4>WWFF" >> "$WWFF_OUTPUT";;
-                *"<my_sig_info:"*)
-                    echo "<my_sig_info:${#WWFF_PARK}>$WWFF_PARK" >> "$WWFF_OUTPUT";;
-                *"comment"*)
+                *"$MY_SIG_KEY"*)
+                    echo "$MY_SIG_KEY4>WWFF" >> "$WWFF_OUTPUT";;
+                *"$MY_SIG_INFO_KEY"*)
+                    echo "$MY_SIG_INFO_KEY${#WWFF_PARK}>$WWFF_PARK" >> "$WWFF_OUTPUT";;
+                *"$COMMENT_KEY"*)
                     comment="MY_WWFF_REF:$WWFF_PARK"
                     found_comment="true"
-                    echo "<comment:${#comment}>$comment" >> "$WWFF_OUTPUT";;
+                    echo "$COMMENT_KEY:${#comment}>$comment" >> "$WWFF_OUTPUT";;
                 *)
                     echo "$line" >> "$WWFF_OUTPUT";;
             esac
@@ -371,10 +377,10 @@ function run() {
     fi
 
     # Display counts
-    INPUT_COUNT=$(grep -c "<call" "$INPUT")
-    POTA_OUTPUT_COUNT=$(grep -c "<call" "$POTA_OUTPUT")
+    INPUT_COUNT=$(grep -c "$CALL_KEY" "$INPUT")
+    POTA_OUTPUT_COUNT=$(grep -c "$CALL_KEY" "$POTA_OUTPUT")
     if [ $PROCESSWWFF -eq 1 ]; then
-        WWFF_OUTPUT_COUNT=$(grep -c "<call" "$WWFF_OUTPUT")
+        WWFF_OUTPUT_COUNT=$(grep -c "$CALL_KEY" "$WWFF_OUTPUT")
     fi
 
     echo "Input file count: $INPUT_COUNT"
