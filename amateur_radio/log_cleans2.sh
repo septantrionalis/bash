@@ -21,6 +21,7 @@ declare -a kv_store=()
 initialize_keys() {
     set_key US-0023 KFF-0023  # Dry Tortugas National Park
     set_key US-0059 KFF-0059  # RMNP
+    set_key US-0184  NIL-0000 # Ramah State Wildlife Area
     set_key US-0244 KFF-0244  # Key West National Wildlife Refuge
     set_key US-1209 KFF-1209  # Barr Lake
     set_key US-1211 KFF-1211  # Castlewood Canyon State Park
@@ -30,19 +31,22 @@ initialize_keys() {
     set_key US-1225 KFF-1225  # Lake Pueblo State Park
     set_key US-1226 KFF-1226  # Lathrop State Park
     set_key US-1228 KFF-1228  # Lory State Park
+    set_key US-1230 KFF-1230  # Mueller State Park
     set_key US-1232 KFF-1232  # North Sterling State Park
     set_key US-1241 KFF-1241  # St. Vrain
     set_key US-2355 KFF-2355  # Wilson State Park
     set_key US-3373 NIL-0000  # Chimney Rock National Historic Site (no WWFF)
     set_key US-5661 NIL-0000  # Bridgeport State Recreation Area (no WWFF)
-    set_key US-11926 NIL-0000 # Lon Hagler State Wildlife Area
-    set_key US-11940 NIL-0000 # Simpsons Pond State Wildlife Area
-    set_key US-12176 NIL-0000 # Frank State Wildlife Area
     set_key US-10533 NIL-0000 # Watson Lake State Wildlife Area
+    set_key US-11923 NIL-0000 # Sharptail Ridge State Wildlife Area
     set_key US-11924 NIL-0000 # Douglas Reservoir State Wildlife Area
+    set_key US-11926 NIL-0000 # Lon Hagler State Wildlife Area
     set_key US-11939 NIL-0000 # Poudre River State Wildlife Area
+    set_key US-11940 NIL-0000 # Simpsons Pond State Wildlife Area
     set_key US-11941 NIL-0000 # Smith Lake State Wildlife Area
+    set_key US-12176 NIL-0000 # Frank State Wildlife Area
     set_key US-12181 NIL-0000 # Banner lakes State Wildlife Area
+
 }
 
 # Function to set or update a key-value pair
