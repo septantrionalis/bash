@@ -192,7 +192,7 @@ list_adif_states() {
     echo -e "$state_count U.S. States"
     echo -e "$output"
 
-    # Loop through the list and print each value
+    # Print out the counts of each state
     for state in "${contacted_states[@]}"; do
         echo -n "$state:"
         state_count=$(grep "<state:2>$state" "$adif_file" | wc -l)
