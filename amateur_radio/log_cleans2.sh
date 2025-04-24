@@ -186,12 +186,19 @@ list_adif_states() {
             # State not contacted: display in dark gray
             output+=$(echo -e "${DARKGREY}$state${NOCOLOR} ")
         fi
-
     done
 
     # Print the output on a single line
     echo -e "$state_count U.S. States"
     echo -e "$output"
+
+    # Loop through the list and print each value
+    for state in "${contacted_states[@]}"; do
+        echo -n "$state:"
+        state_count=$(grep "<state:2>$state" "$adif_file" | wc -l)
+        trimmed="${state_count#"${state_count%%[![:space:]]*}"}"
+        echo "$trimmed"
+    done
 
     return 0
 }
