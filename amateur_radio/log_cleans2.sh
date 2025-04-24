@@ -174,6 +174,7 @@ list_adif_states() {
     local output=""
     local state_count=0
 
+    # Calculate what states are listed in the logs and color code them.
     output+="  "
     for state in "${all_states[@]}"; do
         if [[ "$state" == "MO" ]]; then
