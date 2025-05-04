@@ -29,6 +29,18 @@ OPERATOR_KEY="<OPERATOR:"
 GRIDSQUARE_KEY="<GRIDSQUARE:"
 MYGRIDSQUARE_KEY="<MY_GRIDSQUARE:"
 BAND_KEY="<BAND:"
+FREQ_KEY="<FREQ:"
+TIMEON_KEY="<TIME_ON:"
+QSODATE_KEY="<QSO_DATE:"
+MODE_KEY="<MODE:"
+TXPOWER_KEY="<TX_PWR:"
+MYPOTAREF_KEY="<MY_POTA_REF:"
+NAME_KEY="<NAME:"
+QTH_KEY="<QTH:"
+STATE_KEY="<STATE:"
+COUNTY_KEY="<CNTY:"
+COUNTRY_KEY="<COUNTRY:"
+MYSTATE_KEY="<MY_STATE:"
 
 initialize_keys() {
     set_key US-0023 KFF-0023  # Dry Tortugas National Park
@@ -370,6 +382,42 @@ function validate_file() {
     count=$(get_field_count "$BAND_KEY" "$FILE")
     verify_counts "$CALL_KEY" "$call_count" "$BAND_KEY" "$count"
 
+    count=$(get_field_count "$FREQ_KEY" "$FILE")
+    verify_counts "$CALL_KEY" "$call_count" "$FREQ_KEY" "$count"
+
+    count=$(get_field_count "$TIMEON_KEY" "$FILE")
+    verify_counts "$CALL_KEY" "$call_count" "$TIMEON_KEY" "$count"
+
+    count=$(get_field_count "$QSODATE_KEY" "$FILE")
+    verify_counts "$CALL_KEY" "$call_count" "$QSODATE_KEY" "$count"
+
+    count=$(get_field_count "$MODE_KEY" "$FILE")
+    verify_counts "$CALL_KEY" "$call_count" "$MODE_KEY" "$count"
+
+    count=$(get_field_count "$TXPOWER_KEY" "$FILE")
+    verify_counts "$CALL_KEY" "$call_count" "$TXPOWER_KEY" "$count"
+
+    count=$(get_field_count "$MYPOTAREF_KEY" "$FILE")
+    verify_counts "$CALL_KEY" "$call_count" "$MYPOTAREF_KEY" "$count"
+
+    count=$(get_field_count "$NAME_KEY" "$FILE")
+    verify_counts "$CALL_KEY" "$call_count" "$NAME_KEY" "$count"
+
+    count=$(get_field_count "$QTH_KEY" "$FILE")
+    verify_counts "$CALL_KEY" "$call_count" "$QTH_KEY" "$count"
+
+    count=$(get_field_count "$STATE_KEY" "$FILE")
+    verify_counts "$CALL_KEY" "$call_count" "$STATE_KEY" "$count"
+
+    count=$(get_field_count "$COUNTY_KEY" "$FILE")
+    verify_counts "$CALL_KEY" "$call_count" "$COUNTY_KEY" "$count"
+
+    count=$(get_field_count "$COUNTRY_KEY" "$FILE")
+    verify_counts "$CALL_KEY" "$call_count" "$COUNTRY_KEY" "$count"
+
+    count=$(get_field_count "$MYSTATE_KEY" "$FILE")
+    verify_counts "$CALL_KEY" "$call_count" "$MYSTATE_KEY" "$count"
+
     count=$(get_field_count "$EOR_KEY" "$FILE")
     verify_counts "$CALL_KEY" "$call_count" "$EOR_KEY" "$count"
 
@@ -564,7 +612,8 @@ fi
 initialize_keys
 
 # Extract the first POTA park reference
-POTA_PARK=$(grep -oi '<MY_POTA_REF:[78]>[^ ]*' "$INPUT" | head -n 1 | cut -d '>' -f 2)
+POTA_PARK=$(grep -oi "${MYPOTAREF_KEY}[78]>[^ ]*" "$INPUT" | head -n 1 | cut -d '>' -f 2)
+
 
 # No parameter passed in
 if [ -z "$1" ]; then
