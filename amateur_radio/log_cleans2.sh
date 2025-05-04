@@ -37,6 +37,7 @@ initialize_keys() {
     set_key US-2355 KFF-2355  # Wilson State Park
     set_key US-3373 NIL-0000  # Chimney Rock National Historic Site (no WWFF)
     set_key US-5661 NIL-0000  # Bridgeport State Recreation Area (no WWFF)
+    set_key US-9613 NIL-0000  # Bergen Peak State Wildlife Area
     set_key US-10533 NIL-0000 # Watson Lake State Wildlife Area
     set_key US-11923 NIL-0000 # Sharptail Ridge State Wildlife Area
     set_key US-11924 NIL-0000 # Douglas Reservoir State Wildlife Area
