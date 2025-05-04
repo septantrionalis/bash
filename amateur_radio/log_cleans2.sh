@@ -18,6 +18,18 @@ PROCESSWWFF=1
 
 declare -a kv_store=()
 
+CALL_KEY="<CALL:"
+EOR_KEY="<EOR"
+COMMENT_KEY="<COMMENT:"
+MY_SIG_KEY="<MY_SIG:"
+MY_SIG_INFO_KEY="<MY_SIG_INFO:"
+RST_RCVD_KEY="<RST_RCVD:"
+RST_SENT_KEY="<RST_SENT:"
+OPERATOR_KEY="<OPERATOR:"
+GRIDSQUARE_KEY="<GRIDSQUARE:"
+MYGRIDSQUARE_KEY="<MY_GRIDSQUARE:"
+BAND_KEY="<BAND:"
+
 initialize_keys() {
     set_key US-0023 KFF-0023  # Dry Tortugas National Park
     set_key US-0059 KFF-0059  # RMNP
@@ -34,6 +46,7 @@ initialize_keys() {
     set_key US-1230 KFF-1230  # Mueller State Park
     set_key US-1232 KFF-1232  # North Sterling State Park
     set_key US-1241 KFF-1241  # St. Vrain
+    set_key US-1244 KFF-1244  # Staunton State Park
     set_key US-2355 KFF-2355  # Wilson State Park
     set_key US-3373 NIL-0000  # Chimney Rock National Historic Site (no WWFF)
     set_key US-5661 NIL-0000  # Bridgeport State Recreation Area (no WWFF)
@@ -197,7 +210,7 @@ list_adif_states() {
     # Print out the counts of each state
     for state in "${contacted_states[@]}"; do
         echo -n "$state:"
-        state_count=$(grep "<state:2>$state" "$adif_file" | wc -l)
+        state_count=$(grep -i "<state:2>$state" "$adif_file" | wc -l)
         trimmed="${state_count#"${state_count%%[![:space:]]*}"}"
         echo "$trimmed"
     done
@@ -290,22 +303,139 @@ count_and_list_unique_bands() {
         total_bands=$(echo "$unique_bands" | wc -l)
         printf "Total Bands: %d\n" "$total_bands"
 
+        BAND_LIST=$(echo "$unique_bands" | tr '\n' ' ')
+        BAND_LIST=$(echo "$BAND_LIST" | sed "s/${BAND_KEY}3>//g")
         printf "Bands: "
-        echo "$unique_bands" | tr '\n' ' '  # Replace newlines with spaces
-        echo  # Print a newline after the bands
+        echo "$BAND_LIST"
     else
         echo "No bands found in the ADIF file."
     fi
 }
 
+# Basic file validation
+function validate_file() {
+    FILE="$1"
+
+    if [[ -z "$FILE" || ! -f "$FILE" ]]; then
+        echo "Usage: $0 <filename>"
+        exit 1
+    fi
+
+    # Initialize line counter
+    invalid_lines=0
+
+    # Read the file line by line and check:
+    # 1) Line starts with <
+    # 2) Is a new line.
+    while IFS= read -r line || [[ -n "$line" ]]; do
+        if [[ -n "$line" && "$line" != \<* ]]; then
+            echo "❌ Invalid line: $line"
+            ((invalid_lines++))
+        fi
+    done < "$FILE"
+
+    # Final result
+    if [[ "$invalid_lines" -ne 0 ]]; then
+        echo "❌ Found $invalid_lines invalid line(s) in $FILE."
+        exit 1
+    fi
+
+    # Count total CALL entries (case-insensitive)
+    call_count=$(grep -i "$CALL_KEY" "$FILE" | wc -l)
+    # Count total COMMENT entries with the specific format
+    count=$(get_field_count "${COMMENT_KEY}19>MY_POTA_REF:" "$FILE")
+    if [[ "$count" -eq 0 ]]; then
+        count=$(get_field_count "${COMMENT_KEY}20>MY_WWFF_REF:" "$FILE")
+    fi
+    verify_counts "$CALL_KEY" "$call_count" "$COMMENT_KEY" "$count"
+
+    count=$(get_field_count "$RST_SENT_KEY" "$FILE")
+    verify_counts "$CALL_KEY" "$call_count" "$RST_SENT_KEY" "$count"
+
+    count=$(get_field_count "$RST_RCVD_KEY" "$FILE")
+    verify_counts "$CALL_KEY" "$call_count" "$RST_RCVD_KEY" "$count"
+
+    count=$(get_field_count "$OPERATOR_KEY" "$FILE")
+    verify_counts "$CALL_KEY" "$call_count" "$OPERATOR_KEY" "$count"
+
+    count=$(get_field_count "$GRIDSQUARE_KEY" "$FILE")
+    verify_counts "$CALL_KEY" "$call_count" "$GRIDSQUARE_KEY" "$count"
+
+    count=$(get_field_count "$MYGRIDSQUARE_KEY" "$FILE")
+    verify_counts "$CALL_KEY" "$call_count" "$MYGRIDSQUARE_KEY" "$count"
+
+    count=$(get_field_count "$MY_SIG_INFO_KEY" "$FILE")
+    verify_counts "$CALL_KEY" "$call_count" "$MY_SIG_INFO_KEY" "$count"
+
+    count=$(get_field_count "$BAND_KEY" "$FILE")
+    verify_counts "$CALL_KEY" "$call_count" "$BAND_KEY" "$count"
+
+    count=$(get_field_count "$EOR_KEY" "$FILE")
+    verify_counts "$CALL_KEY" "$call_count" "$EOR_KEY" "$count"
+
+    verify_brackets "$FILE"
+
+    echo "✅ $FILE seems valid."
+
+}
+
+function count_mismatch_error() {
+    local FILE=$1
+    local FIELD1=$2
+    local FIELD1COUNT=$3
+    local FIELD2=$4
+    local FIELD2COUNT=$5
+    echo "❌ Mismatch detected in $FILE!"
+    echo "\"$FIELD1\" count: $FIELD1COUNT"
+    echo "\"$FIELD2\" count: $FIELD2COUNT"
+}
+
+function get_field_count() {
+    local FIELD="$1"
+    local FILE="$2"
+    grep -i "${FIELD}" "$FILE" | wc -l
+}
+
+function verify_counts() {
+    local KEY1=$1
+    local COUNT1=$2
+    local KEY2=$3
+    local COUNT2=$4
+    if [[ "$COUNT1" -ne "$COUNT2" ]]; then
+        count_mismatch_error $FILE "$KEY1" $COUNT1 "$KEY2" $COUNT2
+        exit 1
+    fi
+}
+
+function verify_brackets() {
+    FILE="$1"
+
+    echo "Verifying brackets for $FILE"
+
+    invalid_lines=0
+    linenum=0
+
+    while IFS= read -r line || [[ -n "$line" ]]; do
+        ((linenum++))
+        opens=$(grep -o '<' <<< "$line" | wc -l)
+        closes=$(grep -o '>' <<< "$line" | wc -l)
+
+        if [[ "$opens" -ne "$closes" ]]; then
+            echo "❌ Line $linenum: unmatched < and >"
+            echo "    $line"
+            ((invalid_lines++))
+        fi
+    done < "$FILE"
+
+    if [[ "$invalid_lines" -ne 0 ]]; then
+        echo "❌ Found $invalid_lines line(s) with unmatched < and >"
+        exit 1
+    fi
+}
 
 # Main function to process input and create output files
 function run() {
-    CALL_KEY="<call"
-    EOR_KEY="<eor"
-    COMMENT_KEY="<comment"
-    MY_SIG_KEY="<my_sig:"
-    MY_SIG_INFO_KEY="<my_sig_info:"
+    shopt -s nocasematch
 
     if [ -z "$POTA_PARK" ]; then
         echo "No park reference found. Exiting..."
@@ -329,7 +459,7 @@ function run() {
     found_comment="false"
     callsign="false"
     comment="MY_POTA_REF:$POTA_PARK"
-    while read -r line; do 
+    while IFS= read -r line || [[ -n $line ]]; do
         if [[ $line == *"$CALL_KEY"* ]]; then
             callsign="${line#*>}"
         fi
@@ -337,7 +467,7 @@ function run() {
         if [[ $line == *"$EOR_KEY"* ]]; then
             if [ "$found_comment" == "false" ]; then                
                 echo -e ${RED}Did not find a comment for $callsign! Generating one.${NOCOLOR}
-                echo "$COMMENT_KEY:${#comment}>$comment" >> "$POTA_OUTPUT"
+                echo "$COMMENT_KEY${#comment}>$comment" >> "$POTA_OUTPUT"
             fi
             found_comment="false"
             callsign="false"
@@ -345,7 +475,7 @@ function run() {
 
         if [[ $line == *"$COMMENT_KEY"* ]]; then
             found_comment="true"
-            echo "$COMMENT_KEY:${#comment}>$comment" >> "$POTA_OUTPUT"
+            echo "$COMMENT_KEY${#comment}>$comment " >> "$POTA_OUTPUT"
         else
             echo "$line" >> "$POTA_OUTPUT"
         fi
@@ -359,13 +489,13 @@ function run() {
     callsign="false"
     comment="MY_WWFF_REF:$WWFF_PARK"
     if [ $PROCESSWWFF -eq 1 ]; then
-        while read -r line; do
+        while IFS= read -r line || [[ -n $line ]]; do
             if [[ $line == *"$CALL_KEY"* ]]; then
                 callsign="${line#*>}"
             fi
             if [[ $line == *"$EOR_KEY"* ]]; then
                 if [ "$found_comment" == "false" ]; then
-                    echo "<comment:${#comment}>$comment" >> "$WWFF_OUTPUT"
+                    echo "$COMMENT_KEY${#comment}>$comment" >> "$WWFF_OUTPUT"
                 fi
                 found_comment="false"
                 callsign="false"
@@ -379,7 +509,7 @@ function run() {
                 *"$COMMENT_KEY"*)
                     comment="MY_WWFF_REF:$WWFF_PARK"
                     found_comment="true"
-                    echo "$COMMENT_KEY:${#comment}>$comment" >> "$WWFF_OUTPUT";;
+                    echo "$COMMENT_KEY${#comment}>$comment" >> "$WWFF_OUTPUT";;
                 *)
                     echo "$line" >> "$WWFF_OUTPUT";;
             esac
@@ -390,10 +520,10 @@ function run() {
     fi
 
     # Display counts
-    INPUT_COUNT=$(grep -c "$CALL_KEY" "$INPUT")
-    POTA_OUTPUT_COUNT=$(grep -c "$CALL_KEY" "$POTA_OUTPUT")
+    INPUT_COUNT=$(grep -ci "$CALL_KEY" "$INPUT")
+    POTA_OUTPUT_COUNT=$(grep -ci "$CALL_KEY" "$POTA_OUTPUT")
     if [ $PROCESSWWFF -eq 1 ]; then
-        WWFF_OUTPUT_COUNT=$(grep -c "$CALL_KEY" "$WWFF_OUTPUT")
+        WWFF_OUTPUT_COUNT=$(grep -ci "$CALL_KEY" "$WWFF_OUTPUT")
     fi
 
     echo "Input file count: $INPUT_COUNT"
@@ -401,6 +531,9 @@ function run() {
     if [ $PROCESSWWFF -eq 1 ]; then
         echo "WWFF Output file count: $WWFF_OUTPUT_COUNT"
     fi
+
+    validate_file "$POTA_OUTPUT"
+    validate_file "$WWFF_OUTPUT"
 
     echo -= STATS =-
     calculate_time_diff "$POTA_OUTPUT"
@@ -431,7 +564,7 @@ fi
 initialize_keys
 
 # Extract the first POTA park reference
-POTA_PARK=$(grep -o '<my_sig_info:[78]>[^ ]*' "$INPUT" | head -n 1 | cut -d '>' -f 2)
+POTA_PARK=$(grep -oi '<MY_POTA_REF:[78]>[^ ]*' "$INPUT" | head -n 1 | cut -d '>' -f 2)
 
 # No parameter passed in
 if [ -z "$1" ]; then
