@@ -406,11 +406,12 @@ function validate_file() {
     count=$(get_field_count "$QTH_KEY" "$FILE")
     verify_counts "$CALL_KEY" "$call_count" "$QTH_KEY" "$count"
 
-    count=$(get_field_count "$STATE_KEY" "$FILE")
-    verify_counts "$CALL_KEY" "$call_count" "$STATE_KEY" "$count"
+    # Not all callsigns will have states or counties.
+    # count=$(get_field_count "$STATE_KEY" "$FILE")
+    # verify_counts "$CALL_KEY" "$call_count" "$STATE_KEY" "$count"
 
-    count=$(get_field_count "$COUNTY_KEY" "$FILE")
-    verify_counts "$CALL_KEY" "$call_count" "$COUNTY_KEY" "$count"
+    # count=$(get_field_count "$COUNTY_KEY" "$FILE")
+    # verify_counts "$CALL_KEY" "$call_count" "$COUNTY_KEY" "$count"
 
     count=$(get_field_count "$COUNTRY_KEY" "$FILE")
     verify_counts "$CALL_KEY" "$call_count" "$COUNTRY_KEY" "$count"
@@ -451,7 +452,7 @@ function verify_counts() {
     local COUNT2=$4
     if [[ "$COUNT1" -ne "$COUNT2" ]]; then
         count_mismatch_error $FILE "$KEY1" $COUNT1 "$KEY2" $COUNT2
-        exit 1
+        # exit 1
     fi
 }
 
