@@ -73,6 +73,22 @@ initialize_keys() {
     set_key US-12176 NIL-0000 # Frank State Wildlife Area
     set_key US-12181 NIL-0000 # Banner lakes State Wildlife Area
 
+    set_key US-9655 NIL-0000  # Holbrook Reservoir State Wildlife Area
+    set_key US-7491 KFF-4547  # Comanche National Grassland
+    set_key US-9673 NIL-0000  # Timpas Creek State Wildlife Area
+
+    set_key US-0801 KFF-0801  # Bent's Old Fort National Historic Site
+    set_key US-9657 NIL-0000  # Horse Creek Reservoir State Wildlife Area
+    set_key US-9603 NIL-0000  # Adobe Creek State Wildlife Area
+    set_key US-9649 NIL-0000  # Fort Lyon State Wildlife Area
+    set_key US-1224 KFF-1224  # John Martin Reservoir State Park
+    set_key US-9665 NIL-0000  # Queens State Wildlife Area
+    set_key US-0861 KFF-0861  # Sand Creek Massacre National Historic Site
+    set_key US-9683 NIL-0000  # Amache National Historic Site
+    set_key US-9652 NIL-0000  # Grenada State Wildlife Area
+    set_key US-9639 NIL-0000  # Deadman State Wildlife Area
+
+    # can we not lint when out of state? US-0801 has japan for test
 }
 
 # Function to set or update a key-value pair
@@ -582,7 +598,10 @@ function run() {
     fi
 
     validate_file "$POTA_OUTPUT"
-    validate_file "$WWFF_OUTPUT"
+
+    if [ $PROCESSWWFF -eq 1 ]; then
+        validate_file "$WWFF_OUTPUT"
+    fi
 
     echo -= STATS =-
     calculate_time_diff "$POTA_OUTPUT"
