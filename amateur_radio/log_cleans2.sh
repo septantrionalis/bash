@@ -47,11 +47,13 @@ initialize_keys() {
     set_key US-0059 KFF-0059  # RMNP
     set_key US-0184  NIL-0000 # Ramah State Wildlife Area
     set_key US-0244 KFF-0244  # Key West National Wildlife Refuge
+    set_key US-0801 KFF-0801  # Bent's Old Fort National Historic Site
     set_key US-1209 KFF-1209  # Barr Lake
     set_key US-1211 KFF-1211  # Castlewood Canyon State Park
     set_key US-1212 KFF-1212  # Chatfield
     set_key US-1213 KFF-1213  # Cherry Creek State Park
     set_key US-1214 KFF-1214  # Cheyenne Mountain State Park
+    set_key US-1224 KFF-1224  # John Martin Reservoir State Park
     set_key US-1225 KFF-1225  # Lake Pueblo State Park
     set_key US-1226 KFF-1226  # Lathrop State Park
     set_key US-1228 KFF-1228  # Lory State Park
@@ -62,7 +64,20 @@ initialize_keys() {
     set_key US-2355 KFF-2355  # Wilson State Park
     set_key US-3373 NIL-0000  # Chimney Rock National Historic Site (no WWFF)
     set_key US-5661 NIL-0000  # Bridgeport State Recreation Area (no WWFF)
+    set_key US-7491 KFF-4547  # Comanche National Grassland
+    set_key US-0861 KFF-0861  # Sand Creek Massacre National Historic Site
+    set_key US-9603 NIL-0000  # Adobe Creek State Wildlife Area
     set_key US-9613 NIL-0000  # Bergen Peak State Wildlife Area
+    set_key US-9627 NIL-0000  # Burchfield State Wildlife Area
+    set_key US-9639 NIL-0000  # Deadman State Wildlife Area
+    set_key US-9649 NIL-0000  # Fort Lyon State Wildlife Area
+    set_key US-9652 NIL-0000  # Grenada State Wildlife Area
+    set_key US-9655 NIL-0000  # Holbrook Reservoir State Wildlife Area
+    set_key US-9657 NIL-0000  # Horse Creek Reservoir State Wildlife Area
+    set_key US-9665 NIL-0000  # Queens State Wildlife Area
+    set_key US-9673 NIL-0000  # Timpas Creek State Wildlife Area
+    set_key US-9675 NIL-0000  # Two Buttes State Wildlife Area
+    set_key US-9683 NIL-0000  # Amache National Historic Site
     set_key US-10533 NIL-0000 # Watson Lake State Wildlife Area
     set_key US-11923 NIL-0000 # Sharptail Ridge State Wildlife Area
     set_key US-11924 NIL-0000 # Douglas Reservoir State Wildlife Area
@@ -72,23 +87,6 @@ initialize_keys() {
     set_key US-11941 NIL-0000 # Smith Lake State Wildlife Area
     set_key US-12176 NIL-0000 # Frank State Wildlife Area
     set_key US-12181 NIL-0000 # Banner lakes State Wildlife Area
-
-    set_key US-9655 NIL-0000  # Holbrook Reservoir State Wildlife Area
-    set_key US-7491 KFF-4547  # Comanche National Grassland
-    set_key US-9673 NIL-0000  # Timpas Creek State Wildlife Area
-
-    set_key US-0801 KFF-0801  # Bent's Old Fort National Historic Site
-    set_key US-9657 NIL-0000  # Horse Creek Reservoir State Wildlife Area
-    set_key US-9603 NIL-0000  # Adobe Creek State Wildlife Area
-    set_key US-9649 NIL-0000  # Fort Lyon State Wildlife Area
-    set_key US-1224 KFF-1224  # John Martin Reservoir State Park
-    set_key US-9665 NIL-0000  # Queens State Wildlife Area
-    set_key US-0861 KFF-0861  # Sand Creek Massacre National Historic Site
-    set_key US-9683 NIL-0000  # Amache National Historic Site
-    set_key US-9652 NIL-0000  # Grenada State Wildlife Area
-    set_key US-9639 NIL-0000  # Deadman State Wildlife Area
-
-    # can we not lint when out of state? US-0801 has japan for test
 }
 
 # Function to set or update a key-value pair
@@ -419,10 +417,10 @@ function validate_file() {
     count=$(get_field_count "$NAME_KEY" "$FILE")
     verify_counts "$CALL_KEY" "$call_count" "$NAME_KEY" "$count"
 
-    count=$(get_field_count "$QTH_KEY" "$FILE")
-    verify_counts "$CALL_KEY" "$call_count" "$QTH_KEY" "$count"
-
     # Not all callsigns will have states or counties.
+    # count=$(get_field_count "$QTH_KEY" "$FILE")
+    # verify_counts "$CALL_KEY" "$call_count" "$QTH_KEY" "$count"
+
     # count=$(get_field_count "$STATE_KEY" "$FILE")
     # verify_counts "$CALL_KEY" "$call_count" "$STATE_KEY" "$count"
 
