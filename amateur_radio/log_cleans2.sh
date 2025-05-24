@@ -45,7 +45,10 @@ MYSTATE_KEY="<MY_STATE:"
 initialize_keys() {
     set_key US-0023 KFF-0023  # Dry Tortugas National Park
     set_key US-0059 KFF-0059  # RMNP
+    set_key US-0183 NIL-0000  # Penrose Commons National Recreation Area
     set_key US-0184  NIL-0000 # Ramah State Wildlife Area
+    set_key US-0191 KFF-0191  # Brush Hollow State Wildlife Area
+    set_key US-0192 KFF-0192  # Beaver Creek State Wildlife Area
     set_key US-0244 KFF-0244  # Key West National Wildlife Refuge
     set_key US-0801 KFF-0801  # Bent's Old Fort National Historic Site
     set_key US-1209 KFF-1209  # Barr Lake
@@ -87,6 +90,7 @@ initialize_keys() {
     set_key US-11941 NIL-0000 # Smith Lake State Wildlife Area
     set_key US-12176 NIL-0000 # Frank State Wildlife Area
     set_key US-12181 NIL-0000 # Banner lakes State Wildlife Area
+
 }
 
 # Function to set or update a key-value pair
