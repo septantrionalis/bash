@@ -51,6 +51,7 @@ initialize_keys() {
     set_key US-0192 KFF-0192  # Beaver Creek State Wildlife Area
     set_key US-0244 KFF-0244  # Key West National Wildlife Refuge
     set_key US-0801 KFF-0801  # Bent's Old Fort National Historic Site
+    set_key US-0861 KFF-0861  # Sand Creek Massacre National Historic Site    
     set_key US-1209 KFF-1209  # Barr Lake
     set_key US-1211 KFF-1211  # Castlewood Canyon State Park
     set_key US-1212 KFF-1212  # Chatfield
@@ -64,11 +65,14 @@ initialize_keys() {
     set_key US-1232 KFF-1232  # North Sterling State Park
     set_key US-1241 KFF-1241  # St. Vrain
     set_key US-1244 KFF-1244  # Staunton State Park
+    set_key US-2256 KFF-2256  # Fort Harrison State Park
+    set_key US-2267 KFF-2267  # Shades State Park
+    set_key US-2272 KFF-2272  # Turkey Run State Park
     set_key US-2355 KFF-2355  # Wilson State Park
     set_key US-3373 NIL-0000  # Chimney Rock National Historic Site (no WWFF)
     set_key US-5661 NIL-0000  # Bridgeport State Recreation Area (no WWFF)
     set_key US-7491 KFF-4547  # Comanche National Grassland
-    set_key US-0861 KFF-0861  # Sand Creek Massacre National Historic Site
+    set_key US-6478 KFF-6371  # Maple Leaf Lake State Conservation Area
     set_key US-9603 NIL-0000  # Adobe Creek State Wildlife Area
     set_key US-9613 NIL-0000  # Bergen Peak State Wildlife Area
     set_key US-9627 NIL-0000  # Burchfield State Wildlife Area
@@ -81,6 +85,7 @@ initialize_keys() {
     set_key US-9673 NIL-0000  # Timpas Creek State Wildlife Area
     set_key US-9675 NIL-0000  # Two Buttes State Wildlife Area
     set_key US-9683 NIL-0000  # Amache National Historic Site
+    set_key US-10247 NIL-0000 # Lawrence Creek State Nature Preserve
     set_key US-10533 NIL-0000 # Watson Lake State Wildlife Area
     set_key US-11923 NIL-0000 # Sharptail Ridge State Wildlife Area
     set_key US-11924 NIL-0000 # Douglas Reservoir State Wildlife Area
@@ -90,7 +95,6 @@ initialize_keys() {
     set_key US-11941 NIL-0000 # Smith Lake State Wildlife Area
     set_key US-12176 NIL-0000 # Frank State Wildlife Area
     set_key US-12181 NIL-0000 # Banner lakes State Wildlife Area
-
 }
 
 # Function to set or update a key-value pair
