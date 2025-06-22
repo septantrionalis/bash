@@ -51,7 +51,8 @@ initialize_keys() {
     set_key US-0192 KFF-0192  # Beaver Creek State Wildlife Area
     set_key US-0244 KFF-0244  # Key West National Wildlife Refuge
     set_key US-0801 KFF-0801  # Bent's Old Fort National Historic Site
-    set_key US-0861 KFF-0861  # Sand Creek Massacre National Historic Site    
+    set_key US-0861 KFF-0861  # Sand Creek Massacre National Historic Site
+    set_key US-1007 KFF-1007  # Lincoln Trail State Park
     set_key US-1209 KFF-1209  # Barr Lake
     set_key US-1211 KFF-1211  # Castlewood Canyon State Park
     set_key US-1212 KFF-1212  # Chatfield
@@ -68,6 +69,7 @@ initialize_keys() {
     set_key US-2256 KFF-2256  # Fort Harrison State Park
     set_key US-2267 KFF-2267  # Shades State Park
     set_key US-2272 KFF-2272  # Turkey Run State Park
+    set_key US-2274 KFF-2274  # White River State Park
     set_key US-2355 KFF-2355  # Wilson State Park
     set_key US-3373 NIL-0000  # Chimney Rock National Historic Site (no WWFF)
     set_key US-5661 NIL-0000  # Bridgeport State Recreation Area (no WWFF)
