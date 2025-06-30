@@ -72,6 +72,7 @@ initialize_keys() {
     set_key US-2274 KFF-2274  # White River State Park
     set_key US-2355 KFF-2355  # Wilson State Park
     set_key US-3373 NIL-0000  # Chimney Rock National Historic Site (no WWFF)
+    set_key US-4404 KFF-4404  # Pike National Forest
     set_key US-5661 NIL-0000  # Bridgeport State Recreation Area (no WWFF)
     set_key US-7491 KFF-4547  # Comanche National Grassland
     set_key US-6478 KFF-6371  # Maple Leaf Lake State Conservation Area
