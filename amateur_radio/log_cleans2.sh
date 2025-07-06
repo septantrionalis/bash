@@ -380,8 +380,15 @@ function validate_file() {
 
     # Count total CALL entries (case-insensitive)
     call_count=$(grep -i "$CALL_KEY" "$FILE" | wc -l)
-    # Count total COMMENT entries with the specific format
+    # Count total COMMENT entries with the specific format. Theres got to be a better way to do this.
+    # Count where POTA REF is size 19, if not found, count where size 20. If not found, repeat but with WWFF
     count=$(get_field_count "${COMMENT_KEY}19>MY_POTA_REF:" "$FILE")
+    if [[ "$count" -eq 0 ]]; then
+        count=$(get_field_count "${COMMENT_KEY}20>MY_POTA_REF:" "$FILE")
+    fi
+    if [[ "$count" -eq 0 ]]; then
+        count=$(get_field_count "${COMMENT_KEY}19>MY_WWFF_REF:" "$FILE")
+    fi
     if [[ "$count" -eq 0 ]]; then
         count=$(get_field_count "${COMMENT_KEY}20>MY_WWFF_REF:" "$FILE")
     fi
@@ -659,7 +666,7 @@ if [ -z "$1" ]; then
     fi
 fi
 
-if [ "$1" == "skip" ]; then
+if [ "$1" == "skip" ] || [ "$WWFF_PARK" == "NIL-0000" ]; then
     # Skip the processing of a WWFF log
     PROCESSWWFF=0
     echo "Skipping WWFF Processing"
