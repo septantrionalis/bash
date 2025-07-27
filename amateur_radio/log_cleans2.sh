@@ -91,6 +91,7 @@ initialize_keys() {
     set_key US-9683 NIL-0000  # Amache National Historic Site
     set_key US-10247 NIL-0000 # Lawrence Creek State Nature Preserve
     set_key US-10533 NIL-0000 # Watson Lake State Wildlife Area
+    set_key US-11897 NIL-0000 # Beaver Creek BLM Wilderness Area 
     set_key US-11920 NIL-0000 # Mount Evans State Wildlife Area
     set_key US-11923 NIL-0000 # Sharptail Ridge State Wildlife Area
     set_key US-11924 NIL-0000 # Douglas Reservoir State Wildlife Area
@@ -100,6 +101,7 @@ initialize_keys() {
     set_key US-11941 NIL-0000 # Smith Lake State Wildlife Area
     set_key US-12176 NIL-0000 # Frank State Wildlife Area
     set_key US-12181 NIL-0000 # Banner lakes State Wildlife Area
+
 }
 
 # Function to set or update a key-value pair
