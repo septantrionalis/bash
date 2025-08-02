@@ -42,7 +42,6 @@ COUNTY_KEY="<CNTY:"
 COUNTRY_KEY="<COUNTRY:"
 MYSTATE_KEY="<MY_STATE:"
 
-
 initialize_keys() {
     set_key US-0023 KFF-0023  # Dry Tortugas National Park
     set_key US-0059 KFF-0059  # RMNP
@@ -80,13 +79,20 @@ initialize_keys() {
     set_key US-6478 KFF-6371  # Maple Leaf Lake State Conservation Area
     set_key US-9603 NIL-0000  # Adobe Creek State Wildlife Area
     set_key US-9613 NIL-0000  # Bergen Peak State Wildlife Area
+    set_key US-9626 NIL-0000  # Brush State Wildlife Area
     set_key US-9627 NIL-0000  # Burchfield State Wildlife Area
+    set_key US-9636 NIL-0000  # Cottonwood State Wildlife Area
     set_key US-9639 NIL-0000  # Deadman State Wildlife Area
     set_key US-9649 NIL-0000  # Fort Lyon State Wildlife Area
+    set_key US-9651 NIL-0000  # Frenchman Creek State Wildlife Area
     set_key US-9652 NIL-0000  # Grenada State Wildlife Area
     set_key US-9655 NIL-0000  # Holbrook Reservoir State Wildlife Area
+    set_key US-9656 NIL-0000  # Holyoke State Wildlife Area
     set_key US-9657 NIL-0000  # Horse Creek Reservoir State Wildlife Area
+    set_key US-9663 NIL-0000  # Pony Express State Wildlife Area
+    set_key US-9664 NIL-0000  # Prewitt Reservoir State Wildlife Area
     set_key US-9665 NIL-0000  # Queens State Wildlife Area
+    set_key US-9668 NIL-0000  # Sand Draw State Wildlife Area
     set_key US-9673 NIL-0000  # Timpas Creek State Wildlife Area
     set_key US-9675 NIL-0000  # Two Buttes State Wildlife Area
     set_key US-9683 NIL-0000  # Amache National Historic Site
@@ -101,8 +107,9 @@ initialize_keys() {
     set_key US-11940 NIL-0000 # Simpsons Pond State Wildlife Area
     set_key US-11941 NIL-0000 # Smith Lake State Wildlife Area
     set_key US-12176 NIL-0000 # Frank State Wildlife Area
+    set_key US-12178 NIL-0000 # Atwood State Wildlife Area
     set_key US-12181 NIL-0000 # Banner lakes State Wildlife Area
-
+    set_key US-12188 NIL-0000 # Brush Prairie Ponds State Wildlife Area
 }
 
 # Function to set or update a key-value pair
