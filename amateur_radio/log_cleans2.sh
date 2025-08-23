@@ -603,7 +603,7 @@ function run() {
 
             case $line in
                 *"$MY_SIG_KEY"*)
-                    echo "$MY_SIG_KEY4>WWFF" >> "$WWFF_OUTPUT";;
+                    echo "${MY_SIG_KEY}4>WWFF" >> "$WWFF_OUTPUT";;
                 *"$MY_SIG_INFO_KEY"*)
                     echo "$MY_SIG_INFO_KEY${#WWFF_PARK}>$WWFF_PARK" >> "$WWFF_OUTPUT";;
                 *"$COMMENT_KEY"*)
