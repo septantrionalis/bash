@@ -117,6 +117,11 @@ initialize_keys() {
     set_key US-12355 NIL-0000 # Jumbo Reservoir State Wildlife Area 
 
 
+    set_key US-0068 KFF-0068  # Wind Cave National Park
+    set_key US-0786 KFF-0786  # Mount Rushmore National Memorial
+    set_key US-4524 KFF-4531  # Black Hills National Forest
+    set_key US-8195 NIL-0000  # Spearfish Canyon Nature Recreation Area
+
 }
 
 # Function to set or update a key-value pair
