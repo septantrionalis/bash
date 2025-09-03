@@ -45,12 +45,15 @@ MYSTATE_KEY="<MY_STATE:"
 initialize_keys() {
     set_key US-0023 KFF-0023  # Dry Tortugas National Park
     set_key US-0059 KFF-0059  # RMNP
+    set_key US-0068 KFF-0068  # Wind Cave National Park
     set_key US-0183 NIL-0000  # Penrose Commons National Recreation Area
     set_key US-0184 NIL-0000  # Ramah State Wildlife Area
     set_key US-0191 NIL-0000  # Brush Hollow State Wildlife Area
     set_key US-0192 KFF-0192  # Beaver Creek State Wildlife Area
     set_key US-0244 KFF-0244  # Key West National Wildlife Refuge
+    set_key US-0786 KFF-0786  # Mount Rushmore National Memorial
     set_key US-0801 KFF-0801  # Bent's Old Fort National Historic Site
+    set_key US-0817 KFF-0817  # Fort Laramie National Historic Site
     set_key US-0861 KFF-0861  # Sand Creek Massacre National Historic Site
     set_key US-1007 KFF-1007  # Lincoln Trail State Park
     set_key US-1209 KFF-1209  # Barr Lake
@@ -74,9 +77,11 @@ initialize_keys() {
     set_key US-2355 KFF-2355  # Wilson State Park
     set_key US-3373 NIL-0000  # Chimney Rock National Historic Site (no WWFF)
     set_key US-4404 KFF-4404  # Pike National Forest
+    set_key US-4524 KFF-4531  # Black Hills National Forest
     set_key US-5661 NIL-0000  # Bridgeport State Recreation Area (no WWFF)
     set_key US-7491 KFF-4547  # Comanche National Grassland
     set_key US-6478 KFF-6371  # Maple Leaf Lake State Conservation Area
+    set_key US-8195 NIL-0000  # Spearfish Canyon Nature Recreation Area
     set_key US-9603 NIL-0000  # Adobe Creek State Wildlife Area
     set_key US-9613 NIL-0000  # Bergen Peak State Wildlife Area
     set_key US-9623 NIL-0000  # Bravo State Wildlife Area
@@ -116,11 +121,6 @@ initialize_keys() {
     set_key US-12354 NIL-0000 # Red Lion State Wildlife Area
     set_key US-12355 NIL-0000 # Jumbo Reservoir State Wildlife Area 
 
-
-    set_key US-0068 KFF-0068  # Wind Cave National Park
-    set_key US-0786 KFF-0786  # Mount Rushmore National Memorial
-    set_key US-4524 KFF-4531  # Black Hills National Forest
-    set_key US-8195 NIL-0000  # Spearfish Canyon Nature Recreation Area
 
 }
 
