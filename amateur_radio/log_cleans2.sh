@@ -68,6 +68,7 @@ initialize_keys() {
     set_key US-1228 KFF-1228  # Lory State Park
     set_key US-1230 KFF-1230  # Mueller State Park
     set_key US-1232 KFF-1232  # North Sterling State Park
+    set_key US-1240 KFF-1240  # Spinney Mountain State Park
     set_key US-1241 KFF-1241  # St. Vrain
     set_key US-1244 KFF-1244  # Staunton State Park
     set_key US-2256 KFF-2256  # Fort Harrison State Park
@@ -77,6 +78,7 @@ initialize_keys() {
     set_key US-2355 KFF-2355  # Wilson State Park
     set_key US-3373 NIL-0000  # Chimney Rock National Historic Site (no WWFF)
     set_key US-4404 KFF-4404  # Pike National Forest
+    set_key US-4410 KFF-4410  # White River National Forest
     set_key US-4524 KFF-4531  # Black Hills National Forest
     set_key US-5661 NIL-0000  # Bridgeport State Recreation Area (no WWFF)
     set_key US-7491 KFF-4547  # Comanche National Grassland
@@ -114,14 +116,13 @@ initialize_keys() {
     set_key US-11939 NIL-0000 # Poudre River State Wildlife Area
     set_key US-11940 NIL-0000 # Simpsons Pond State Wildlife Area
     set_key US-11941 NIL-0000 # Smith Lake State Wildlife Area
+    set_key US-12138 NIL-0000 # Charlie Meyers State Wildlife Area
     set_key US-12176 NIL-0000 # Frank State Wildlife Area
     set_key US-12178 NIL-0000 # Atwood State Wildlife Area
     set_key US-12181 NIL-0000 # Banner lakes State Wildlife Area
     set_key US-12188 NIL-0000 # Brush Prairie Ponds State Wildlife Area
     set_key US-12354 NIL-0000 # Red Lion State Wildlife Area
     set_key US-12355 NIL-0000 # Jumbo Reservoir State Wildlife Area 
-
-
 }
 
 # Function to set or update a key-value pair
