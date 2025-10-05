@@ -55,6 +55,7 @@ initialize_keys() {
     set_key US-0801 KFF-0801  # Bent's Old Fort National Historic Site
     set_key US-0817 KFF-0817  # Fort Laramie National Historic Site
     set_key US-0861 KFF-0861  # Sand Creek Massacre National Historic Site
+    set_key US-0925 KFF-0925  # Florissant Fossil Beds National Monument
     set_key US-1007 KFF-1007  # Lincoln Trail State Park
     set_key US-1209 KFF-1209  # Barr Lake
     set_key US-1210 KFF-1210  # Boyd Lake State Park
