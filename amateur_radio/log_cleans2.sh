@@ -123,7 +123,12 @@ initialize_keys() {
     set_key US-12181 NIL-0000 # Banner lakes State Wildlife Area
     set_key US-12188 NIL-0000 # Brush Prairie Ponds State Wildlife Area
     set_key US-12354 NIL-0000 # Red Lion State Wildlife Area
-    set_key US-12355 NIL-0000 # Jumbo Reservoir State Wildlife Area 
+    set_key US-12355 NIL-0000 # Jumbo Reservoir State Wildlife Area
+
+    set_key US-1221 KFF-1221  # Highline Lake State Park
+    set_key US-5749 NIL-0000  # Kokopelli's Trail National Recreation Area
+    set_key US-9595 KFF-4959  # McInnis Canyons BLM National Conservation Area
+
 }
 
 # Function to set or update a key-value pair
