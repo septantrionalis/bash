@@ -63,6 +63,7 @@ initialize_keys() {
     set_key US-1212 KFF-1212  # Chatfield
     set_key US-1213 KFF-1213  # Cherry Creek State Park
     set_key US-1214 KFF-1214  # Cheyenne Mountain State Park
+    set_key US-1221 KFF-1221  # Highline Lake State Park
     set_key US-1224 KFF-1224  # John Martin Reservoir State Park
     set_key US-1225 KFF-1225  # Lake Pueblo State Park
     set_key US-1226 KFF-1226  # Lathrop State Park
@@ -82,9 +83,11 @@ initialize_keys() {
     set_key US-4410 KFF-4410  # White River National Forest
     set_key US-4524 KFF-4531  # Black Hills National Forest
     set_key US-5661 NIL-0000  # Bridgeport State Recreation Area (no WWFF)
+    set_key US-5749 NIL-0000  # Kokopelli's Trail National Recreation Area
     set_key US-7491 KFF-4547  # Comanche National Grassland
     set_key US-6478 KFF-6371  # Maple Leaf Lake State Conservation Area
     set_key US-8195 NIL-0000  # Spearfish Canyon Nature Recreation Area
+    set_key US-9595 KFF-4959  # McInnis Canyons BLM National Conservation Area
     set_key US-9603 NIL-0000  # Adobe Creek State Wildlife Area
     set_key US-9613 NIL-0000  # Bergen Peak State Wildlife Area
     set_key US-9623 NIL-0000  # Bravo State Wildlife Area
@@ -109,6 +112,7 @@ initialize_keys() {
     set_key US-9683 NIL-0000  # Amache National Historic Site
     set_key US-10247 NIL-0000 # Lawrence Creek State Nature Preserve
     set_key US-10533 NIL-0000 # Watson Lake State Wildlife Area
+    set_key US-11891 NIL-0000 # Tilman Bishop State Wildlife Area 
     set_key US-11897 NIL-0000 # Beaver Creek BLM Wilderness Area 
     set_key US-11920 NIL-0000 # Mount Evans State Wildlife Area
     set_key US-11923 NIL-0000 # Sharptail Ridge State Wildlife Area
@@ -125,9 +129,7 @@ initialize_keys() {
     set_key US-12354 NIL-0000 # Red Lion State Wildlife Area
     set_key US-12355 NIL-0000 # Jumbo Reservoir State Wildlife Area
 
-    set_key US-1221 KFF-1221  # Highline Lake State Park
-    set_key US-5749 NIL-0000  # Kokopelli's Trail National Recreation Area
-    set_key US-9595 KFF-4959  # McInnis Canyons BLM National Conservation Area
+
 
 }
 
