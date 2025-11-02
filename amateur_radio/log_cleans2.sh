@@ -129,8 +129,9 @@ initialize_keys() {
     set_key US-12354 NIL-0000 # Red Lion State Wildlife Area
     set_key US-12355 NIL-0000 # Jumbo Reservoir State Wildlife Area
 
-
-
+    set_key US-12585 NIL-0000 # Elliot State Wildlife Area
+    set_key US-12586 NIL-0000 # Jean K Tool State Wildlife Area 
+    set_key US-12587 NIL-0000 # Andrick Ponds State Wildlife Area 
 }
 
 # Function to set or update a key-value pair
