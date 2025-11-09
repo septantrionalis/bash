@@ -129,6 +129,7 @@ initialize_keys() {
     set_key US-12354 NIL-0000 # Red Lion State Wildlife Area
     set_key US-12355 NIL-0000 # Jumbo Reservoir State Wildlife Area
 
+    set_key US-0226 KFF-0226  # Rocky Mountain Arsenal National Wildlife Refuge
     set_key US-12585 NIL-0000 # Elliot State Wildlife Area
     set_key US-12586 NIL-0000 # Jean K Tool State Wildlife Area 
     set_key US-12587 NIL-0000 # Andrick Ponds State Wildlife Area 
