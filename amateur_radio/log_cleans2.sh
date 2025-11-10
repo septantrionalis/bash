@@ -48,8 +48,11 @@ initialize_keys() {
     set_key US-0068 KFF-0068  # Wind Cave National Park
     set_key US-0183 NIL-0000  # Penrose Commons National Recreation Area
     set_key US-0184 NIL-0000  # Ramah State Wildlife Area
+    set_key US-0185 NIL-0000  # Hugo State Wildlife Area
+    set_key US-0188 KFF-0188  # Kinney Lake State Wildlife Area
     set_key US-0191 NIL-0000  # Brush Hollow State Wildlife Area
     set_key US-0192 KFF-0192  # Beaver Creek State Wildlife Area
+    set_key US-0226 KFF-0226  # Rocky Mountain Arsenal National Wildlife Refuge
     set_key US-0244 KFF-0244  # Key West National Wildlife Refuge
     set_key US-0786 KFF-0786  # Mount Rushmore National Memorial
     set_key US-0801 KFF-0801  # Bent's Old Fort National Historic Site
@@ -87,6 +90,7 @@ initialize_keys() {
     set_key US-7491 KFF-4547  # Comanche National Grassland
     set_key US-6478 KFF-6371  # Maple Leaf Lake State Conservation Area
     set_key US-8195 NIL-0000  # Spearfish Canyon Nature Recreation Area
+    set_key US-8296 NIL-0000  # Karval Reservoir State Wildlife Area 
     set_key US-9595 KFF-4959  # McInnis Canyons BLM National Conservation Area
     set_key US-9603 NIL-0000  # Adobe Creek State Wildlife Area
     set_key US-9613 NIL-0000  # Bergen Peak State Wildlife Area
@@ -128,11 +132,13 @@ initialize_keys() {
     set_key US-12188 NIL-0000 # Brush Prairie Ponds State Wildlife Area
     set_key US-12354 NIL-0000 # Red Lion State Wildlife Area
     set_key US-12355 NIL-0000 # Jumbo Reservoir State Wildlife Area
-
-    set_key US-0226 KFF-0226  # Rocky Mountain Arsenal National Wildlife Refuge
     set_key US-12585 NIL-0000 # Elliot State Wildlife Area
     set_key US-12586 NIL-0000 # Jean K Tool State Wildlife Area 
     set_key US-12587 NIL-0000 # Andrick Ponds State Wildlife Area 
+
+
+
+
 }
 
 # Function to set or update a key-value pair
