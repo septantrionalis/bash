@@ -118,6 +118,7 @@ initialize_keys() {
     set_key US-10533 NIL-0000 # Watson Lake State Wildlife Area
     set_key US-11891 NIL-0000 # Tilman Bishop State Wildlife Area 
     set_key US-11897 NIL-0000 # Beaver Creek BLM Wilderness Area 
+    set_key US-11899 NIL-0000 # South Republican State Wildlife Area
     set_key US-11920 NIL-0000 # Mount Evans State Wildlife Area
     set_key US-11923 NIL-0000 # Sharptail Ridge State Wildlife Area
     set_key US-11924 NIL-0000 # Douglas Reservoir State Wildlife Area
@@ -132,11 +133,11 @@ initialize_keys() {
     set_key US-12188 NIL-0000 # Brush Prairie Ponds State Wildlife Area
     set_key US-12354 NIL-0000 # Red Lion State Wildlife Area
     set_key US-12355 NIL-0000 # Jumbo Reservoir State Wildlife Area
+    set_key US-12456 NIL-0000 # Stalker Lake State Wildlife Area
     set_key US-12585 NIL-0000 # Elliot State Wildlife Area
     set_key US-12586 NIL-0000 # Jean K Tool State Wildlife Area 
     set_key US-12587 NIL-0000 # Andrick Ponds State Wildlife Area 
-
-
+    set_key US-12755 NIL-0000 # Sandsage State Wildlife Area
 
 
 }
