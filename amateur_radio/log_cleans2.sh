@@ -60,6 +60,7 @@ initialize_keys() {
     set_key US-0861 KFF-0861  # Sand Creek Massacre National Historic Site
     set_key US-0925 KFF-0925  # Florissant Fossil Beds National Monument
     set_key US-1007 KFF-1007  # Lincoln Trail State Park
+    set_key US-1208 KFF-1208 # Arkansas River Headwaters Recreation Park 
     set_key US-1209 KFF-1209  # Barr Lake
     set_key US-1210 KFF-1210  # Boyd Lake State Park
     set_key US-1211 KFF-1211  # Castlewood Canyon State Park
@@ -84,6 +85,7 @@ initialize_keys() {
     set_key US-3373 NIL-0000  # Chimney Rock National Historic Site (no WWFF)
     set_key US-4404 KFF-4404  # Pike National Forest
     set_key US-4410 KFF-4410  # White River National Forest
+    set_key US-4411 KFF-4411 # Browns Canyon National Monument
     set_key US-4524 KFF-4531  # Black Hills National Forest
     set_key US-5661 NIL-0000  # Bridgeport State Recreation Area (no WWFF)
     set_key US-5749 NIL-0000  # Kokopelli's Trail National Recreation Area
@@ -133,6 +135,7 @@ initialize_keys() {
     set_key US-12188 NIL-0000 # Brush Prairie Ponds State Wildlife Area
     set_key US-12354 NIL-0000 # Red Lion State Wildlife Area
     set_key US-12355 NIL-0000 # Jumbo Reservoir State Wildlife Area
+    set_key US-12455 NIL-0000 # Mt. Shavano State Fish Hatchery 
     set_key US-12456 NIL-0000 # Stalker Lake State Wildlife Area
     set_key US-12585 NIL-0000 # Elliot State Wildlife Area
     set_key US-12586 NIL-0000 # Jean K Tool State Wildlife Area 
