@@ -119,6 +119,7 @@ initialize_keys() {
     set_key US-9683 NIL-0000  # Amache National Historic Site
     set_key US-10247 NIL-0000 # Lawrence Creek State Nature Preserve
     set_key US-10533 NIL-0000 # Watson Lake State Wildlife Area
+    set_key US-10540 NIL-0000 # Bellevue-Watson State Fish Hatchery    
     set_key US-11891 NIL-0000 # Tilman Bishop State Wildlife Area 
     set_key US-11897 NIL-0000 # Beaver Creek BLM Wilderness Area 
     set_key US-11899 NIL-0000 # South Republican State Wildlife Area
@@ -142,7 +143,6 @@ initialize_keys() {
     set_key US-12586 NIL-0000 # Jean K Tool State Wildlife Area 
     set_key US-12587 NIL-0000 # Andrick Ponds State Wildlife Area 
     set_key US-12755 NIL-0000 # Sandsage State Wildlife Area
-
 
 }
 
