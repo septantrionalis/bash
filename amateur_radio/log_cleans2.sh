@@ -44,6 +44,7 @@ MYSTATE_KEY="<MY_STATE:"
 
 initialize_keys() {
     set_key US-0023 KFF-0023  # Dry Tortugas National Park
+    set_key US-0033 KFF-0033  # Great Sand Dunes National Park    
     set_key US-0059 KFF-0059  # RMNP
     set_key US-0068 KFF-0068  # Wind Cave National Park
     set_key US-0183 NIL-0000  # Penrose Commons National Recreation Area
@@ -93,6 +94,7 @@ initialize_keys() {
     set_key US-7491 KFF-4547  # Comanche National Grassland
     set_key US-6478 KFF-6371  # Maple Leaf Lake State Conservation Area
     set_key US-8195 NIL-0000  # Spearfish Canyon Nature Recreation Area
+    set_key US-8295 NIL-0000  # Great Sand Dunes National Preserve    
     set_key US-8296 NIL-0000  # Karval Reservoir State Wildlife Area 
     set_key US-9595 KFF-4959  # McInnis Canyons BLM National Conservation Area
     set_key US-9603 NIL-0000  # Adobe Creek State Wildlife Area
@@ -143,6 +145,7 @@ initialize_keys() {
     set_key US-12586 NIL-0000 # Jean K Tool State Wildlife Area 
     set_key US-12587 NIL-0000 # Andrick Ponds State Wildlife Area 
     set_key US-12755 NIL-0000 # Sandsage State Wildlife Area
+
 
 }
 
