@@ -54,7 +54,9 @@ initialize_keys() {
     set_key US-0191 NIL-0000  # Brush Hollow State Wildlife Area
     set_key US-0192 KFF-0192  # Beaver Creek State Wildlife Area
     set_key US-0226 KFF-0226  # Rocky Mountain Arsenal National Wildlife Refuge
+    set_key US-0240 KFF-0240  # Great White Heron National Wildlife Refuge
     set_key US-0244 KFF-0244  # Key West National Wildlife Refuge
+    set_key US-0250 KFF-0250  # National Key Deer National Wildlife Refuge
     set_key US-0786 KFF-0786  # Mount Rushmore National Memorial
     set_key US-0801 KFF-0801  # Bent's Old Fort National Historic Site
     set_key US-0817 KFF-0817  # Fort Laramie National Historic Site
@@ -146,6 +148,8 @@ initialize_keys() {
     set_key US-12586 NIL-0000 # Jean K Tool State Wildlife Area 
     set_key US-12587 NIL-0000 # Andrick Ponds State Wildlife Area 
     set_key US-12755 NIL-0000 # Sandsage State Wildlife Area
+
+    set_key US-6303 KFF-5245  # Florida Keys Wildlife Area
 
 }
 
