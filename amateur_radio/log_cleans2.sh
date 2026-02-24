@@ -44,7 +44,7 @@ MYSTATE_KEY="<MY_STATE:"
 
 initialize_keys() {
     set_key US-0023 KFF-0023  # Dry Tortugas National Park
-    set_key US-0033 KFF-0033  # Great Sand Dunes National Park    
+    set_key US-0033 KFF-0033  # Great Sand Dunes National Park
     set_key US-0059 KFF-0059  # RMNP
     set_key US-0068 KFF-0068  # Wind Cave National Park
     set_key US-0183 NIL-0000  # Penrose Commons National Recreation Area
@@ -85,6 +85,7 @@ initialize_keys() {
     set_key US-2274 KFF-2274  # White River State Park
     set_key US-2355 KFF-2355  # Wilson State Park
     set_key US-3373 NIL-0000  # Chimney Rock National Historic Site (no WWFF)
+    set_key US-3623 KFF-3623  # Fort Zachary Taylor State Park
     set_key US-4404 KFF-4404  # Pike National Forest
     set_key US-4410 KFF-4410  # White River National Forest
     set_key US-4411 KFF-4411 # Browns Canyon National Monument
@@ -145,7 +146,6 @@ initialize_keys() {
     set_key US-12586 NIL-0000 # Jean K Tool State Wildlife Area 
     set_key US-12587 NIL-0000 # Andrick Ponds State Wildlife Area 
     set_key US-12755 NIL-0000 # Sandsage State Wildlife Area
-
 
 }
 
