@@ -81,6 +81,7 @@ initialize_keys() {
     set_key US-1240 KFF-1240  # Spinney Mountain State Park
     set_key US-1241 KFF-1241  # St. Vrain
     set_key US-1244 KFF-1244  # Staunton State Park
+    set_key US-1248 KFF-1248  # Trinidad Lake State Park
     set_key US-2256 KFF-2256  # Fort Harrison State Park
     set_key US-2267 KFF-2267  # Shades State Park
     set_key US-2272 KFF-2272  # Turkey Run State Park
@@ -91,13 +92,14 @@ initialize_keys() {
     set_key US-3623 KFF-3623  # Fort Zachary Taylor State Park    
     set_key US-4404 KFF-4404  # Pike National Forest
     set_key US-4410 KFF-4410  # White River National Forest
-    set_key US-4411 KFF-4411 # Browns Canyon National Monument
+    set_key US-4411 KFF-4411  # Browns Canyon National Monument
     set_key US-4524 KFF-4531  # Black Hills National Forest
     set_key US-5661 NIL-0000  # Bridgeport State Recreation Area (no WWFF)
     set_key US-5749 NIL-0000  # Kokopelli's Trail National Recreation Area
-    set_key US-7491 KFF-4547  # Comanche National Grassland
     set_key US-6303 KFF-5245  # Florida Keys Wildlife Area    
     set_key US-6478 KFF-6371  # Maple Leaf Lake State Conservation Area
+    set_key US-7491 KFF-4547  # Comanche National Grassland
+    set_key US-7845 KFF-6818  # Fisher's Peak 
     set_key US-8195 NIL-0000  # Spearfish Canyon Nature Recreation Area
     set_key US-8295 NIL-0000  # Great Sand Dunes National Preserve    
     set_key US-8296 NIL-0000  # Karval Reservoir State Wildlife Area 
