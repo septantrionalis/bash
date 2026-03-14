@@ -87,6 +87,7 @@ initialize_keys() {
     set_key US-2272 KFF-2272  # Turkey Run State Park
     set_key US-2274 KFF-2274  # White River State Park
     set_key US-2355 KFF-2355  # Wilson State Park
+    set_key US-3295 KFF-3295  # Curt Gowdy State Park    
     set_key US-3373 NIL-0000  # Chimney Rock National Historic Site (no WWFF)
     set_key US-3620 KFF-3620  # Florida Keys Overseas Heritage Trail State Park
     set_key US-3623 KFF-3623  # Fort Zachary Taylor State Park    
@@ -122,6 +123,7 @@ initialize_keys() {
     set_key US-9664 NIL-0000  # Prewitt Reservoir State Wildlife Area
     set_key US-9665 NIL-0000  # Queens State Wildlife Area
     set_key US-9668 NIL-0000  # Sand Draw State Wildlife Area
+    set_key US-9669 NIL-0000  # Sawhill Ponds State Wildlife Area    
     set_key US-9670 NIL-0000  # Sedgwick Bar State Wildlife Area
     set_key US-9673 NIL-0000  # Timpas Creek State Wildlife Area
     set_key US-9675 NIL-0000  # Two Buttes State Wildlife Area
