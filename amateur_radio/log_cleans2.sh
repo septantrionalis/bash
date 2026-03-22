@@ -53,6 +53,7 @@ initialize_keys() {
     set_key US-0188 KFF-0188  # Kinney Lake State Wildlife Area
     set_key US-0191 NIL-0000  # Brush Hollow State Wildlife Area
     set_key US-0192 KFF-0192  # Beaver Creek State Wildlife Area
+    set_key US-0225 KFF-0225  #Rocky Flats National Wildlife Refuge    
     set_key US-0226 KFF-0226  # Rocky Mountain Arsenal National Wildlife Refuge
     set_key US-0240 KFF-0240  # Great White Heron National Wildlife Refuge
     set_key US-0244 KFF-0244  # Key West National Wildlife Refuge
