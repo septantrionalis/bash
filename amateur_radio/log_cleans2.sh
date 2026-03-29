@@ -107,6 +107,7 @@ initialize_keys() {
     set_key US-8296 NIL-0000  # Karval Reservoir State Wildlife Area 
     set_key US-9595 KFF-4959  # McInnis Canyons BLM National Conservation Area
     set_key US-9603 NIL-0000  # Adobe Creek State Wildlife Area
+    set_key US-9607 KFF-7169  # Apishapa State Wildlife Area
     set_key US-9613 NIL-0000  # Bergen Peak State Wildlife Area
     set_key US-9623 NIL-0000  # Bravo State Wildlife Area
     set_key US-9626 NIL-0000  # Brush State Wildlife Area
@@ -155,7 +156,6 @@ initialize_keys() {
     set_key US-12586 NIL-0000 # Jean K Tool State Wildlife Area 
     set_key US-12587 NIL-0000 # Andrick Ponds State Wildlife Area 
     set_key US-12755 NIL-0000 # Sandsage State Wildlife Area
-
 
 }
 
