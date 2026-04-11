@@ -73,6 +73,7 @@ initialize_keys() {
     set_key US-1213 KFF-1213  # Cherry Creek State Park
     set_key US-1214 KFF-1214  # Cheyenne Mountain State Park
     set_key US-1221 KFF-1221  # Highline Lake State Park
+    set_key US-1222 KFF-1222  # Jackson Lake State Park
     set_key US-1224 KFF-1224  # John Martin Reservoir State Park
     set_key US-1225 KFF-1225  # Lake Pueblo State Park
     set_key US-1226 KFF-1226  # Lathrop State Park
@@ -146,7 +147,7 @@ initialize_keys() {
     set_key US-12138 NIL-0000 # Charlie Meyers State Wildlife Area
     set_key US-12176 NIL-0000 # Frank State Wildlife Area
     set_key US-12178 NIL-0000 # Atwood State Wildlife Area
-    set_key US-12181 NIL-0000 # Banner lakes State Wildlife Area
+    set_key US-12181 KFF-7171 # Banner Lakes State Wildlife Area
     set_key US-12188 NIL-0000 # Brush Prairie Ponds State Wildlife Area
     set_key US-12354 NIL-0000 # Red Lion State Wildlife Area
     set_key US-12355 NIL-0000 # Jumbo Reservoir State Wildlife Area
@@ -156,7 +157,6 @@ initialize_keys() {
     set_key US-12586 NIL-0000 # Jean K Tool State Wildlife Area 
     set_key US-12587 NIL-0000 # Andrick Ponds State Wildlife Area 
     set_key US-12755 NIL-0000 # Sandsage State Wildlife Area
-
 }
 
 # Function to set or update a key-value pair
