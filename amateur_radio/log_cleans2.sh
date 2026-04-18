@@ -94,6 +94,7 @@ initialize_keys() {
     set_key US-3620 KFF-3620  # Florida Keys Overseas Heritage Trail State Park
     set_key US-3623 KFF-3623  # Fort Zachary Taylor State Park    
     set_key US-4404 KFF-4404  # Pike National Forest
+    set_key US-4406 KFF-4406  # Roosevelt National Forest    
     set_key US-4410 KFF-4410  # White River National Forest
     set_key US-4411 KFF-4411  # Browns Canyon National Monument
     set_key US-4524 KFF-4531  # Black Hills National Forest
@@ -113,8 +114,10 @@ initialize_keys() {
     set_key US-9623 NIL-0000  # Bravo State Wildlife Area
     set_key US-9626 NIL-0000  # Brush State Wildlife Area
     set_key US-9627 NIL-0000  # Burchfield State Wildlife Area
+    set_key US-9629 NIL-0000  # Cherokee State Wildlife Area    
     set_key US-9636 NIL-0000  # Cottonwood State Wildlife Area
     set_key US-9639 NIL-0000  # Deadman State Wildlife Area
+    set_key US-9644 NIL-0000  # Dowdy Lake State Wildlife Area    
     set_key US-9646 NIL-0000  # Duck Creek State Wildlife Area
     set_key US-9649 NIL-0000  # Fort Lyon State Wildlife Area
     set_key US-9651 NIL-0000  # Frenchman Creek State Wildlife Area
@@ -141,6 +144,7 @@ initialize_keys() {
     set_key US-11923 NIL-0000 # Sharptail Ridge State Wildlife Area
     set_key US-11924 NIL-0000 # Douglas Reservoir State Wildlife Area
     set_key US-11926 NIL-0000 # Lon Hagler State Wildlife Area
+    set_key US-11938 NIL-0000 # Parvin Lake State Wildlife Area    
     set_key US-11939 NIL-0000 # Poudre River State Wildlife Area
     set_key US-11940 NIL-0000 # Simpsons Pond State Wildlife Area
     set_key US-11941 NIL-0000 # Smith Lake State Wildlife Area
@@ -157,6 +161,8 @@ initialize_keys() {
     set_key US-12586 NIL-0000 # Jean K Tool State Wildlife Area 
     set_key US-12587 NIL-0000 # Andrick Ponds State Wildlife Area 
     set_key US-12755 NIL-0000 # Sandsage State Wildlife Area
+
+
 }
 
 # Function to set or update a key-value pair
