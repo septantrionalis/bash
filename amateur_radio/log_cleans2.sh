@@ -89,7 +89,8 @@ initialize_keys() {
     set_key US-2272 KFF-2272  # Turkey Run State Park
     set_key US-2274 KFF-2274  # White River State Park
     set_key US-2355 KFF-2355  # Wilson State Park
-    set_key US-3295 KFF-3295  # Curt Gowdy State Park    
+    set_key US-3295 KFF-3295  # Curt Gowdy State Park
+    set_key US-3298 KFF-3298  # Guernsey State Park
     set_key US-3373 NIL-0000  # Chimney Rock National Historic Site (no WWFF)
     set_key US-3620 KFF-3620  # Florida Keys Overseas Heritage Trail State Park
     set_key US-3623 KFF-3623  # Fort Zachary Taylor State Park    
@@ -100,6 +101,7 @@ initialize_keys() {
     set_key US-4524 KFF-4531  # Black Hills National Forest
     set_key US-5661 NIL-0000  # Bridgeport State Recreation Area (no WWFF)
     set_key US-5749 NIL-0000  # Kokopelli's Trail National Recreation Area
+    set_key US-6114 NIL-0000  # Oregon Trail Ruts State Historic Site    
     set_key US-6303 KFF-5245  # Florida Keys Wildlife Area    
     set_key US-6478 KFF-6371  # Maple Leaf Lake State Conservation Area
     set_key US-7491 KFF-4547  # Comanche National Grassland
@@ -161,7 +163,6 @@ initialize_keys() {
     set_key US-12586 NIL-0000 # Jean K Tool State Wildlife Area 
     set_key US-12587 NIL-0000 # Andrick Ponds State Wildlife Area 
     set_key US-12755 NIL-0000 # Sandsage State Wildlife Area
-
 
 }
 
