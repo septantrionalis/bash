@@ -101,7 +101,8 @@ initialize_keys() {
     set_key US-4524 KFF-4531  # Black Hills National Forest
     set_key US-5661 NIL-0000  # Bridgeport State Recreation Area (no WWFF)
     set_key US-5749 NIL-0000  # Kokopelli's Trail National Recreation Area
-    set_key US-6114 NIL-0000  # Oregon Trail Ruts State Historic Site    
+    set_key US-6114 NIL-0000  # Oregon Trail Ruts State Historic Site
+    set_key US-6115 NIL-0000  #  Historic Governors' Mansion State Historic Site
     set_key US-6303 KFF-5245  # Florida Keys Wildlife Area    
     set_key US-6478 KFF-6371  # Maple Leaf Lake State Conservation Area
     set_key US-7491 KFF-4547  # Comanche National Grassland
