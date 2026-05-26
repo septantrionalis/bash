@@ -111,7 +111,9 @@ initialize_keys() {
     set_key US-8295 NIL-0000  # Great Sand Dunes National Preserve    
     set_key US-8296 NIL-0000  # Karval Reservoir State Wildlife Area 
     set_key US-9595 KFF-4959  # McInnis Canyons BLM National Conservation Area
+    set_key US-9601 KFF-7203  # 63 Ranch State Wildlife Area
     set_key US-9603 NIL-0000  # Adobe Creek State Wildlife Area
+    set_key US-9605 NIL-0000  # Alma State Wildlife Area
     set_key US-9607 KFF-7169  # Apishapa State Wildlife Area
     set_key US-9613 NIL-0000  # Bergen Peak State Wildlife Area
     set_key US-9623 NIL-0000  # Bravo State Wildlife Area
@@ -139,7 +141,7 @@ initialize_keys() {
     set_key US-9683 NIL-0000  # Amache National Historic Site
     set_key US-10247 NIL-0000 # Lawrence Creek State Nature Preserve
     set_key US-10533 NIL-0000 # Watson Lake State Wildlife Area
-    set_key US-10540 NIL-0000 # Bellevue-Watson State Fish Hatchery    
+    set_key US-10540 NIL-0000 # Bellevue-Watson State Fish Hatchery
     set_key US-11891 NIL-0000 # Tilman Bishop State Wildlife Area 
     set_key US-11897 NIL-0000 # Beaver Creek BLM Wilderness Area 
     set_key US-11899 NIL-0000 # South Republican State Wildlife Area
@@ -152,6 +154,9 @@ initialize_keys() {
     set_key US-11940 NIL-0000 # Simpsons Pond State Wildlife Area
     set_key US-11941 NIL-0000 # Smith Lake State Wildlife Area
     set_key US-12138 NIL-0000 # Charlie Meyers State Wildlife Area
+    set_key US-12139 NIL-0000 # Cline Ranch State Wildlife Area
+    set_key US-12140 NIL-0000 # Spinney Mountain State Wildlife Area
+    set_key US-12170 NIL-0000 # Teter-Michigan Creek State Wildlife Area 
     set_key US-12176 NIL-0000 # Frank State Wildlife Area
     set_key US-12178 NIL-0000 # Atwood State Wildlife Area
     set_key US-12181 KFF-7171 # Banner Lakes State Wildlife Area
