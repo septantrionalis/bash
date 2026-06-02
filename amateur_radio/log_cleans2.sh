@@ -174,6 +174,8 @@ initialize_keys() {
     set_key US-12586 NIL-0000 # Jean K Tool State Wildlife Area
     set_key US-12587 NIL-0000 # Andrick Ponds State Wildlife Area
     set_key US-12755 NIL-0000 # Sandsage State Wildlife Area
+    set_key BM-0020  NIL-0000 # Somerset Long Bay Park
+
 }
 
 # Function to set or update a key-value pair
