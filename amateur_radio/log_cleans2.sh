@@ -174,7 +174,8 @@ initialize_keys() {
     set_key US-12586 NIL-0000 # Jean K Tool State Wildlife Area
     set_key US-12587 NIL-0000 # Andrick Ponds State Wildlife Area
     set_key US-12755 NIL-0000 # Sandsage State Wildlife Area
-    set_key BM-0020  NIL-0000 # Somerset Long Bay Park
+    set_key BM-0020 NIL-0000  # Somerset Long Bay Park
+    set_key US-0899 KFF-0899  # African Burial Ground National Monument
 
 }
 
