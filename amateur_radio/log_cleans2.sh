@@ -776,4 +776,14 @@ else
     echo -e "POTA:$POTA_PARK = WWFF:$WWFF_PARK"
 fi
 
+rename() {
+    epoch_time=$(date +%s)
+
+    new_input="${INPUT%.adi}_${epoch_time}.adi"
+
+    mv "$INPUT" "$new_input"
+}
+
+
 run
+rename
