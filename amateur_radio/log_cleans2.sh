@@ -177,6 +177,10 @@ initialize_keys() {
     set_key BM-0020 NIL-0000  # Somerset Long Bay Park
     set_key US-0899 KFF-0899  # African Burial Ground National Monument
 
+    set_key US-12171 NIL-0000 # Tomahawk State Wildlife Area
+    set_key US-12172 NIL-0000 # James Mark Jones State Wildlife Area 
+    set_key US-1217 KFF-1217  # Eleven Mile State Park
+
 }
 
 # Function to set or update a key-value pair
