@@ -180,6 +180,7 @@ initialize_keys() {
     set_key US-12171 NIL-0000 # Tomahawk State Wildlife Area
     set_key US-12172 NIL-0000 # James Mark Jones State Wildlife Area 
     set_key US-1217 KFF-1217  # Eleven Mile State Park
+    set_key US-9612 NIL-0000  # Bellaire Lake State Wildlife Area 
 
 }
 
