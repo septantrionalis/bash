@@ -181,6 +181,8 @@ initialize_keys() {
     set_key US-12172 NIL-0000 # James Mark Jones State Wildlife Area 
     set_key US-1217 KFF-1217  # Eleven Mile State Park
     set_key US-9612 NIL-0000  # Bellaire Lake State Wildlife Area 
+    set_key US-10828 NIL-0000 # Quebec 01 Missile Alert Facility State Park
+    
 
 }
 
