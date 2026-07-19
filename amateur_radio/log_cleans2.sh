@@ -182,7 +182,7 @@ initialize_keys() {
     set_key US-1217 KFF-1217  # Eleven Mile State Park
     set_key US-9612 NIL-0000  # Bellaire Lake State Wildlife Area 
     set_key US-10828 NIL-0000 # Quebec 01 Missile Alert Facility State Park
-    
+    set_key US-6120 NIL-0000  # Ames Monument State Historic Site 
 
 }
 
