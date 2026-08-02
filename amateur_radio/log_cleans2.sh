@@ -48,6 +48,7 @@ COUNTRY_KEY="<COUNTRY:"
 MYSTATE_KEY="<MY_STATE:"
 
 initialize_keys() {
+    set_key BM-0020 NIL-0000  # Somerset Long Bay Park
     set_key US-0023 KFF-0023  # Dry Tortugas National Park
     set_key US-0033 KFF-0033  # Great Sand Dunes National Park
     set_key US-0059 KFF-0059  # RMNP
@@ -56,6 +57,7 @@ initialize_keys() {
     set_key US-0184 NIL-0000  # Ramah State Wildlife Area
     set_key US-0185 NIL-0000  # Hugo State Wildlife Area
     set_key US-0188 KFF-0188  # Kinney Lake State Wildlife Area
+    set_key US-0190 NIL-0000  # Flagler Reservoir State Wildlife Area
     set_key US-0191 NIL-0000  # Brush Hollow State Wildlife Area
     set_key US-0192 KFF-0192  # Beaver Creek State Wildlife Area
     set_key US-0225 KFF-0225  # Rocky Flats National Wildlife Refuge
@@ -67,9 +69,9 @@ initialize_keys() {
     set_key US-0801 KFF-0801  # Bent's Old Fort National Historic Site
     set_key US-0817 KFF-0817  # Fort Laramie National Historic Site
     set_key US-0861 KFF-0861  # Sand Creek Massacre National Historic Site
+    set_key US-0899 KFF-0899  # African Burial Ground National Monument
     set_key US-0925 KFF-0925  # Florissant Fossil Beds National Monument
     set_key US-1007 KFF-1007  # Lincoln Trail State Park
-    set_key US-0190 NIL-0000  # Flagler Reservoir State Wildlife Area
     set_key US-1208 KFF-1208  # Arkansas River Headwaters Recreation Park
     set_key US-1209 KFF-1209  # Barr Lake
     set_key US-1210 KFF-1210  # Boyd Lake State Park
@@ -77,6 +79,8 @@ initialize_keys() {
     set_key US-1212 KFF-1212  # Chatfield
     set_key US-1213 KFF-1213  # Cherry Creek State Park
     set_key US-1214 KFF-1214  # Cheyenne Mountain State Park
+    set_key US-1217 KFF-1217  # Eleven Mile State Park
+    set_key US-1220 KFF-1220  # Harvey Gap State Park
     set_key US-1221 KFF-1221  # Highline Lake State Park
     set_key US-1222 KFF-1222  # Jackson Lake State Park
     set_key US-1224 KFF-1224  # John Martin Reservoir State Park
@@ -85,6 +89,8 @@ initialize_keys() {
     set_key US-1228 KFF-1228  # Lory State Park
     set_key US-1230 KFF-1230  # Mueller State Park
     set_key US-1232 KFF-1232  # North Sterling State Park
+    set_key US-1236 KFF-1236  # Rifle Falls State Park
+    set_key US-1237 KFF-1237  # Rifle Gap State Park
     set_key US-1240 KFF-1240  # Spinney Mountain State Park
     set_key US-1241 KFF-1241  # St. Vrain
     set_key US-1244 KFF-1244  # Staunton State Park
@@ -108,6 +114,7 @@ initialize_keys() {
     set_key US-5749 NIL-0000  # Kokopelli's Trail National Recreation Area
     set_key US-6114 NIL-0000  # Oregon Trail Ruts State Historic Site
     set_key US-6115 NIL-0000  # Historic Governors' Mansion State Historic Site
+    set_key US-6120 NIL-0000  # Ames Monument State Historic Site 
     set_key US-6303 KFF-5245  # Florida Keys Wildlife Area
     set_key US-6478 KFF-6371  # Maple Leaf Lake State Conservation Area
     set_key US-7491 KFF-4547  # Comanche National Grassland
@@ -116,11 +123,14 @@ initialize_keys() {
     set_key US-8295 NIL-0000  # Great Sand Dunes National Preserve
     set_key US-8296 NIL-0000  # Karval Reservoir State Wildlife Area
     set_key US-9595 KFF-4959  # McInnis Canyons BLM National Conservation Area
+    set_key US-9598 NIL-0000  # Hardscrabble-East Eagle BLM National Recreation Area
     set_key US-9601 KFF-7203  # 63 Ranch State Wildlife Area
     set_key US-9603 NIL-0000  # Adobe Creek State Wildlife Area
     set_key US-9605 NIL-0000  # Alma State Wildlife Area
     set_key US-9607 KFF-7169  # Apishapa State Wildlife Area
+    set_key US-9612 NIL-0000  # Bellaire Lake State Wildlife Area 
     set_key US-9613 NIL-0000  # Bergen Peak State Wildlife Area
+    set_key US-9615 NIL-0000  # Big Thompson Ponds State Wildlife Area
     set_key US-9623 NIL-0000  # Bravo State Wildlife Area
     set_key US-9626 NIL-0000  # Brush State Wildlife Area
     set_key US-9627 NIL-0000  # Burchfield State Wildlife Area
@@ -132,6 +142,7 @@ initialize_keys() {
     set_key US-9649 NIL-0000  # Fort Lyon State Wildlife Area
     set_key US-9651 NIL-0000  # Frenchman Creek State Wildlife Area
     set_key US-9652 NIL-0000  # Grenada State Wildlife Area
+    set_key US-9653 NIL-0000  # Gypsum Ponds State Wildlife Area
     set_key US-9655 NIL-0000  # Holbrook Reservoir State Wildlife Area
     set_key US-9656 NIL-0000  # Holyoke State Wildlife Area
     set_key US-9657 NIL-0000  # Horse Creek Reservoir State Wildlife Area
@@ -146,10 +157,15 @@ initialize_keys() {
     set_key US-9683 NIL-0000  # Amache National Historic Site
     set_key US-10247 NIL-0000 # Lawrence Creek State Nature Preserve
     set_key US-10533 NIL-0000 # Watson Lake State Wildlife Area
+    set_key US-10534 NIL-0000 # Garfield Creek State Wildlife Area
+    set_key US-10535 NIL-0000 # West Rifle Creek State Wildlife Area
+    set_key US-10539 NIL-0000 # Rifle Falls State Fish Hatchery
     set_key US-10540 NIL-0000 # Bellevue-Watson State Fish Hatchery
+    set_key US-10828 NIL-0000 # Quebec 01 Missile Alert Facility State Park
     set_key US-11891 NIL-0000 # Tilman Bishop State Wildlife Area
     set_key US-11897 NIL-0000 # Beaver Creek BLM Wilderness Area
     set_key US-11899 NIL-0000 # South Republican State Wildlife Area
+    set_key US-11915 NIL-0000 # Hubbard Mesa OHV BLM Special Recreation Management Area
     set_key US-11920 NIL-0000 # Mount Evans State Wildlife Area
     set_key US-11923 NIL-0000 # Sharptail Ridge State Wildlife Area
     set_key US-11924 NIL-0000 # Douglas Reservoir State Wildlife Area
@@ -162,10 +178,15 @@ initialize_keys() {
     set_key US-12139 NIL-0000 # Cline Ranch State Wildlife Area
     set_key US-12140 NIL-0000 # Spinney Mountain State Wildlife Area
     set_key US-12170 NIL-0000 # Teter-Michigan Creek State Wildlife Area
+    set_key US-12171 NIL-0000 # Tomahawk State Wildlife Area
+    set_key US-12172 NIL-0000 # James Mark Jones State Wildlife Area 
     set_key US-12176 NIL-0000 # Frank State Wildlife Area
     set_key US-12178 NIL-0000 # Atwood State Wildlife Area
     set_key US-12181 KFF-7171 # Banner Lakes State Wildlife Area
+    set_key US-12186 NIL-0000 # Bob Terrell State Wildlife Area
+    set_key US-12187 NIL-0000 #  Roaring Fork State Wildlife Area
     set_key US-12188 NIL-0000 # Brush Prairie Ponds State Wildlife Area
+    set_key US-12321 NIL-0000 # Red Hill BLM Special Recreation Management Area
     set_key US-12354 NIL-0000 # Red Lion State Wildlife Area
     set_key US-12355 NIL-0000 # Jumbo Reservoir State Wildlife Area
     set_key US-12455 NIL-0000 # Mt. Shavano State Fish Hatchery
@@ -174,15 +195,7 @@ initialize_keys() {
     set_key US-12586 NIL-0000 # Jean K Tool State Wildlife Area
     set_key US-12587 NIL-0000 # Andrick Ponds State Wildlife Area
     set_key US-12755 NIL-0000 # Sandsage State Wildlife Area
-    set_key BM-0020 NIL-0000  # Somerset Long Bay Park
-    set_key US-0899 KFF-0899  # African Burial Ground National Monument
 
-    set_key US-12171 NIL-0000 # Tomahawk State Wildlife Area
-    set_key US-12172 NIL-0000 # James Mark Jones State Wildlife Area 
-    set_key US-1217 KFF-1217  # Eleven Mile State Park
-    set_key US-9612 NIL-0000  # Bellaire Lake State Wildlife Area 
-    set_key US-10828 NIL-0000 # Quebec 01 Missile Alert Facility State Park
-    set_key US-6120 NIL-0000  # Ames Monument State Historic Site 
 
 }
 
