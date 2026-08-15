@@ -149,6 +149,7 @@ initialize_keys() {
     set_key US-9663 NIL-0000  # Pony Express State Wildlife Area
     set_key US-9664 NIL-0000  # Prewitt Reservoir State Wildlife Area
     set_key US-9665 NIL-0000  # Queens State Wildlife Area
+    set_key US-9666 NIL-0000  # Rosemont State Wildlife Area 
     set_key US-9668 NIL-0000  # Sand Draw State Wildlife Area
     set_key US-9669 NIL-0000  # Sawhill Ponds State Wildlife Area
     set_key US-9670 NIL-0000  # Sedgwick Bar State Wildlife Area
