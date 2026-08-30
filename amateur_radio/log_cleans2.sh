@@ -197,6 +197,11 @@ initialize_keys() {
     set_key US-12587 NIL-0000 # Andrick Ponds State Wildlife Area
     set_key US-12755 NIL-0000 # Sandsage State Wildlife Area
 
+    set_key US-1242 KFF-1242  # Stagecoach State Park
+    set_key US-4403 KFF-4647  # Medicine Bow - Routt National Forest
+    set_key US-9602 NIL-0000  # Adams State Wildlife Area
+
+
 
 }
 
