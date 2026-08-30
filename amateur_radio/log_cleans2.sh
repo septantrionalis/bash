@@ -201,6 +201,9 @@ initialize_keys() {
     set_key US-4403 KFF-4647  # Medicine Bow - Routt National Forest
     set_key US-9602 NIL-0000  # Adams State Wildlife Area
 
+    set_key US-9597 NIL-0000  # Kremmling BLM National Recreation Area 
+    set_key US-9599 NIL-0000  # Wolford Mountain and Dam Site BLM National Recreation Area 
+    set_key US-9619 NIL-0000  # Blue River State Wildlife Area 
 
 
 }
