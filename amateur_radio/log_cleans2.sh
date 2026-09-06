@@ -204,7 +204,7 @@ initialize_keys() {
     set_key US-9597 NIL-0000  # Kremmling BLM National Recreation Area 
     set_key US-9599 NIL-0000  # Wolford Mountain and Dam Site BLM National Recreation Area 
     set_key US-9619 NIL-0000  # Blue River State Wildlife Area 
-
+    set_key US-9678 NIL-0000  # Windy Gap Watchable State Wildlife Area
 
 }
 
