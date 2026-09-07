@@ -206,6 +206,8 @@ initialize_keys() {
     set_key US-9619 NIL-0000  # Blue River State Wildlife Area 
     set_key US-9678 NIL-0000  # Windy Gap Watchable State Wildlife Area
 
+    set_key US-9650 NIL-0000  # Four Mile State Wildlife Area
+
 }
 
 # Function to set or update a key-value pair
