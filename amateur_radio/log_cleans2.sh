@@ -80,6 +80,7 @@ initialize_keys() {
     set_key US-1213 KFF-1213  # Cherry Creek State Park
     set_key US-1214 KFF-1214  # Cheyenne Mountain State Park
     set_key US-1217 KFF-1217  # Eleven Mile State Park
+    set_key US-1219 KFF-1219  # Golden Gate Canyon State Park
     set_key US-1220 KFF-1220  # Harvey Gap State Park
     set_key US-1221 KFF-1221  # Highline Lake State Park
     set_key US-1222 KFF-1222  # Jackson Lake State Park
@@ -196,6 +197,7 @@ initialize_keys() {
     set_key US-12586 NIL-0000 # Jean K Tool State Wildlife Area
     set_key US-12587 NIL-0000 # Andrick Ponds State Wildlife Area
     set_key US-12755 NIL-0000 # Sandsage State Wildlife Area
+    set_key US-13084 NIL-0000 # Ralston Creek State Wildlife Area
 
     set_key US-1242 KFF-1242  # Stagecoach State Park
     set_key US-4403 KFF-4647  # Medicine Bow - Routt National Forest
@@ -207,6 +209,7 @@ initialize_keys() {
     set_key US-9678 NIL-0000  # Windy Gap Watchable State Wildlife Area
 
     set_key US-9650 NIL-0000  # Four Mile State Wildlife Area
+
 
 }
 
