@@ -210,6 +210,7 @@ initialize_keys() {
 
     set_key US-9650 NIL-0000  # Four Mile State Wildlife Area
 
+    set_key US-12106 NIL-0000 # Brainard Lake Recreation Area National Forest
 
 }
 
