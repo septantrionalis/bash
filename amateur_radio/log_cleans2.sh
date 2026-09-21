@@ -11903,6 +11903,7 @@ function displayHelp() {
     echo ""
     echo "     If no parameter is passed in, then the script will attempt to process the WWFF file"
     echo "     by an internal lookup."
+    echo "     Parks with no WWFF mapping (or NIL-0000) produce only the POTA file."
     echo ""
     echo "     If text other than the below is passed in, then the script will process the WWFF file"
     echo "     using this text as the WWFF identifier. KFF-1212, for example."
@@ -12287,7 +12288,9 @@ run() {
     fi
 
     checkAndDeleteFile "$POTA_OUTPUT"
-    checkAndDeleteFile "$WWFF_OUTPUT"
+    if [ "$PROCESSWWFF" -eq 1 ]; then
+        checkAndDeleteFile "$WWFF_OUTPUT"
+    fi
 
     # Process POTA
     found_comment="false"
@@ -12408,8 +12411,8 @@ if [ -z "$1" ]; then
 
     WWFF_PARK=$(get_key "$POTA_PARK")
     if [[ "$WWFF_PARK" == "null" ]]; then
-        echo -e "${RED}The POTA lookup found no WWFF reference.${NOCOLOR}"
-        exit 1
+        echo "set_key not found for $POTA_PARK. A KFF file will not be generated."
+        WWFF_PARK="NIL-0000"
     fi
 fi
 
